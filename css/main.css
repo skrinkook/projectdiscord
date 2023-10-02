@@ -16,6 +16,7 @@
 
 html {
     background-color: var(--BGCOLOR-SCROLLER-GUILDS);
+    overflow: visible;
 }
 
 .main-container {
@@ -26,11 +27,29 @@ html {
     height: 100vh;
 }
 
+/* || Left Scroller */
 .left-scroller-guilds {
     min-width: 72px;
     max-width: 72px;
+    min-height: 100vh;
     height: 100%;
     background-color: var(--BGCOLOR-SCROLLER-GUILDS);
+    overflow-y: auto;
+}
+
+/*hides scrollbar that was created*/
+div::-webkit-scrollbar {
+    display: none;
+  }
+  
+
+.scroller-server {
+    width: 48px;
+    height: 48px;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 50%;
 }
 
 .right-container {
@@ -46,7 +65,7 @@ html {
 /* ---------------------- */
 .header-container {
     width: 100%;
-    height: 48px;
+    min-height: 48px;
     background-color: var(--BGCOLOR-HEADER-CONTAINER-DARKER);
     border-radius: 10px 0 0 0;
     display: flex;
@@ -79,6 +98,7 @@ html {
     border-radius: 5px;
     padding-left: 8px;
     color: hsl(0, 0%, 100%, 0.5);
+    cursor: pointer;
 }
 
 /* 3 MAIN COLUMNS*/
@@ -86,7 +106,7 @@ html {
 .main-content {
     width: 100%;
     height: 100%;
-    background-color: pink;
+    background-color: orange;
     display: flex;
     flex-direction: row;
 }
@@ -97,6 +117,28 @@ html {
     max-width: var(--HEADER-CONTAINER-SEARCH-SIDE-WIDTH);
     height: 100%;
     background-color: var(--BGCOLOR-HEADER-CONTAINER-DARKER);
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.message-column__upperhalf {
+    width: 100%;
+    height: 100%;
+    background-color: aqua;
+}
+
+.whitefillblock {
+    height: 48px;
+    width: 100%;
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+.message-column__footer {
+    width: 100%;
+    height: 80px;
+    background-color: green;
 }
 
 /*Second Column*/
@@ -119,3 +161,5 @@ html {
         display: none;
     }
 }
+
+
