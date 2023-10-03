@@ -5,3 +5,5 @@ for (i = 0; i < numberOfServerIcons; i++){
     div.classList.add("scroller-server");
     document.querySelector(".left-scroller-guilds").appendChild(div);
 }
+
+const numberOfContactsOpened = 30;

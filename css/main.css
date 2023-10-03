@@ -28,6 +28,10 @@ font-family: 'Sans-GG-Semibold';
     --BGCOLOR-HEADER-CONTAINER-DARKER: rgb(39, 41, 45);
     --BGCOLOR-HEADER-CONTAINER-LIGHT: rgb(45, 48, 53);
 
+    /* || FONT COLORS */
+    --FONTCOLOR-MENU: #949BA4;
+
+
     /* || SIZES */
     --HEADER-CONTAINER-SEARCH-SIDE-WIDTH: 240px;
     --HEADER-HEIGHT: 48px;
@@ -162,22 +166,30 @@ div::-webkit-scrollbar {
 .message-column__upperhalf {
     width: 100%;
     height: 100%;
-    background-color: aqua;
+    background-color: var(--BGCOLOR-HEADER-CONTAINER-DARKER);
     overflow-y: auto;
-    padding: 20px;
+    padding: 8px 8px 0 8px;
 }
 
 .whitefillblock {
-    height: 48px;
+    height: 42px;
     width: 100%;
-    background-color: white;
-    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 3px;
+    border-radius: 5px;
+}
+
+.direct-messages__h2 {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--FONTCOLOR-MENU);
+    padding: 18px 0 4px 10px;
 }
 
 .message-column__footer {
     width: 100%;
     min-height: 52px;
-    background-color: var(--BGCOLOR-HEADER-CONTAINER-DARKER);
+    background-color: var(--BGCOLOR-SCROLLER-GUILDS);
 }
 
 /*Second Column*/
