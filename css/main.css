@@ -1,3 +1,21 @@
+@font-face {
+font-family: 'Sans-GG-Bold';
+    src: url('/fonts/gg-sans-2-cufonfonts/gg\ sans\ Bold.ttf') format('woff2');
+  }
+@font-face {
+font-family: 'Sans-GG-Medium';
+    src: url('/fonts/gg-sans-2-cufonfonts/gg\ sans\ Medium.ttf') format('woff2');
+  }
+@font-face {
+font-family: 'Sans-GG-Regular';
+    src: url('/fonts/gg-sans-2-cufonfonts/gg\ sans\ Regular.ttf') format('woff2');
+    }
+@font-face {
+font-family: 'Sans-GG-Semibold';
+        src: url('/fonts/gg-sans-2-cufonfonts/gg\ sans\ Semibold.ttf') format('woff2');
+        }
+
+
 * {
     margin: 0;
     padding: 0;
@@ -18,7 +36,7 @@
 html, body {
     background-color: var(--BGCOLOR-SCROLLER-GUILDS);
     height: 100%;
-
+    font-family: Sans-GG-Semibold;
 }
 
 .main-container {
@@ -30,6 +48,7 @@ html, body {
 }
 
 /* || Left Scroller */
+/*------------------------*/
 .left-scroller-guilds {
     min-width: 72px;
     max-width: 72px;
@@ -58,6 +77,16 @@ div::-webkit-scrollbar {
     margin-top: 12px;
     border-radius: 30%;
 }
+
+.scroller-server__separator {
+    width: 32px;
+    height: 2px;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 8px;
+}
+
+
 
 .right-container {
     width: 100%;
@@ -97,8 +126,8 @@ div::-webkit-scrollbar {
 }
 
 .search-side__button {
-    width: 208px;
-    height: 26px;
+    width: 220px;
+    height: 28px;
     text-align: left;
     background-color: var(--BGCOLOR-SCROLLER-GUILDS);
     border: none;
@@ -106,6 +135,7 @@ div::-webkit-scrollbar {
     padding-left: 8px;
     color: hsl(0, 0%, 100%, 0.5);
     cursor: pointer;
+    font-family: Sans-GG-Medium;
 }
 
 /* 3 MAIN COLUMNS*/
@@ -146,7 +176,7 @@ div::-webkit-scrollbar {
 
 .message-column__footer {
     width: 100%;
-    height: 80px;
+    min-height: 52px;
     background-color: var(--BGCOLOR-HEADER-CONTAINER-DARKER);
 }
 
