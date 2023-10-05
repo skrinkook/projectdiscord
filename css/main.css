@@ -149,6 +149,16 @@ div::-webkit-scrollbar {
     width: 100%;
     height: 32px;
     background-color: gray;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.leftSideContent {
+    width: 60px;
+    height: 20px;
+    background-color: white;
 }
 
 .buttons-side__right {

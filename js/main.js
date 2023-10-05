@@ -1,3 +1,4 @@
+
 const numberOfServerIcons = 15;
 
 for (i = 0; i < numberOfServerIcons; i++){
@@ -14,15 +15,9 @@ for (i = 0; i < numberOfChannelsOpened; i++){
     document.querySelector(".message-column__upperhalf").appendChild(div);
 }
 
-
-fetch('test.json')
-  .then(response => response.json())
-  .then(data => {
-    let dataParse = data.servers[0]
-    let dataParseJSON = JSON.stringify(dataParse);
-    console.log(dataParseJSON)
-    console.log(data.servers[0]);
-  })
-  .catch(error => {
-    console.error(error);
-  });
+if (Math.random() <= 0.4) {
+    const randomNumber = Math.floor(Math.random() * 20) + 1;
+    console.log(randomNumber);
+  } else {
+    console.log("Nothing");
+  }
