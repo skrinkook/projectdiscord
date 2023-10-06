@@ -41,6 +41,7 @@ html, body {
     background-color: var(--BGCOLOR-SCROLLER-GUILDS);
     height: 100%;
     font-family: Sans-GG-Semibold;
+    user-select: none;
 }
 
 .main-container {
@@ -69,17 +70,61 @@ div::-webkit-scrollbar {
   
 
 .scroller-server {
-    width: 48px;
+    width: 100%;
     height: 48px;
-    background-color: white;
     margin: 0 auto;
     margin-top: 8px;
-    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .scroller-server:first-child {
     margin-top: 12px;
     border-radius: 30%;
+    width: 48;
+}
+
+.server-icon {
+    width: 48px;
+    height: 48px;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+    background-image: url("/icons/Midjourney_Emblem.ico");
+    background-size: contain;
+    cursor: pointer;
+}
+
+.icon-status__active {
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    background-color: rgb(251, 54, 54);
+    border-radius: 10px;
+    bottom: -2px;
+    right: -2px;
+    border: 3px solid var(--BGCOLOR-SCROLLER-GUILDS);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pill {
+    position: absolute;
+    width: 10px;
+    height: 28px;
+    background-color: white;
+    left: -5px;
+    border-radius: 5px;
+    opacity: 90%;
+}
+
+.icon-status__active__number {
+    font-size: 11px;
+    font-family: Sans-GG-Bold, sans-serif;
+    color: white;
 }
 
 .scroller-server__separator {
@@ -130,6 +175,7 @@ div::-webkit-scrollbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .search-side__button {
@@ -151,8 +197,10 @@ div::-webkit-scrollbar {
     background-color: gray;
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
     align-items: center;
     flex-grow: 1;
+    position: relative;
 }
 
 .leftSideContent {

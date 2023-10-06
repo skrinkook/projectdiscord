@@ -1,0 +1,20 @@
+{
+    "servers": [
+        {
+            "name": "Midjourney",
+            "icon": "icons/Midjourney_Emblem.ico",
+            "notifications": 1240,
+            "pill": 1,
+            "verified": 1,
+            "muted": 1
+        }, {
+            "name": "League of Legends",
+            "icon": "",
+            "notifications": 2,
+            "pill": 1,
+            "verified": 1,
+            "muted": 0
+        }, {
+        }
+    ]
+}

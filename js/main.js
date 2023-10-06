@@ -14,10 +14,3 @@ for (i = 0; i < numberOfChannelsOpened; i++){
     div.classList.add("whitefillblock");
     document.querySelector(".message-column__upperhalf").appendChild(div);
 }
-
-if (Math.random() <= 0.4) {
-    const randomNumber = Math.floor(Math.random() * 20) + 1;
-    console.log(randomNumber);
-  } else {
-    console.log("Nothing");
-  }
