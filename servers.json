@@ -2,19 +2,109 @@
     "servers": [
         {
             "name": "Midjourney",
-            "icon": "icons/Midjourney_Emblem.ico",
+            "icon": "/icons/Midjourney_Emblem.ico",
             "notifications": 1240,
             "pill": 1,
-            "verified": 1,
+            "verified": "verified",
             "muted": 1
         }, {
             "name": "League of Legends",
-            "icon": "",
+            "icon": "/icons/League_of_Legends_Emblem.ico",
             "notifications": 2,
             "pill": 1,
-            "verified": 1,
+            "verified": "verified",
             "muted": 0
         }, {
+            "name": "OPAT04XD",
+            "icon": "/icons/OPAT04XD_Emblem.ico",
+            "notifications": 0,
+            "pill": 0,
+            "verified": "partner",
+            "muted": 1
+        }, {
+            "name": "No Text To Speech",
+            "icon": "/icons/No_Text_To_Speach_Emblem.ico",
+            "notifications": 0,
+            "pill": 0,
+            "verified": "none",
+            "muted": 1
+        }, {
+            "name": "BLACKPINK",
+            "icon": "/icons/BLACKPINK_Emblem.ico",
+            "notifications": 1,
+            "pill": 1,
+            "verified": "community",
+            "muted": 0
+        }, {
+            "name": "RedDeadRedemption",
+            "icon": "/icons/RedDeadRedemption_Emlem.ico",
+            "notifications": 8,
+            "pill": 1,
+            "verified": "community",
+            "muted": 0
+        }, {
+            "name": "Under Ctrl",
+            "icon": "/icons/Under_Ctrl_Emblem.ico",
+            "notifications": 0,
+            "pill": 1,
+            "verified": "community",
+            "muted": 0
+        }, {
+            "name": "The Thoughts Server",
+            "icon": "/icons/The_Thoughts_Server_Emblem.ico",
+            "notifications": 0,
+            "pill": 0,
+            "verified": "none",
+            "muted": 1
+        }, {
+            "name": "Sasageyo Gang",
+            "icon": "/icons/Sasageyo_Gang_Emblem.ico",
+            "notifications": 0,
+            "pill": 1,
+            "verified": "community",
+            "muted": 1
+        }, {
+            "name": "Lynx City RP",
+            "icon": "/icons/Lynx_City_RP_Emblem.ico",
+            "notifications": 2,
+            "pill": 1,
+            "verified": "verified",
+            "muted": 0 
+        }, {
+            "name": "Cattos",
+            "icon": "/icons/BLACKPINK_Emblem.ico",
+            "notifications": 0,
+            "pill": 0,
+            "verified": "community",
+            "muted": 1
+        }, {
+            "name": "StarWarsBros",
+            "icon": "/icons/StarWarsBros_Emblem.ico",
+            "notifications": 0,
+            "pill": 0,
+            "verified": "none",
+            "muted": 0
+        }, {
+            "name": "Daku Revengers 2.0",
+            "icon": "/icons/Daku_Revengers_2.0_Emblem.ico",
+            "notifications": 150,
+            "pill": 0,
+            "verified": "verified",
+            "muted": 0
+        }, {
+            "name": "The safe space<3",
+            "icon": "/icons/The_safe_space_3_Emblem.ico",
+            "notifications": 2,
+            "pill": 1,
+            "verified": "community",
+            "muted": 1
+        }, {
+            "name": "Ota Caf",
+            "icon": "/icons/Ota_Caf_Emblem.ico",
+            "notifications": 0,
+            "pill": 0,
+            "verified": "community",
+            "muted": 1
         }
     ]
 }
