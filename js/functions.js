@@ -7,7 +7,7 @@ function fetchServersData() {
       });
   }
 
-const generateRedPillAndNumber = function(){
+const generateRedPillAndNumber = function(i, notificationsNumber){
     let displayRedBox = document.createElement("div");
     displayRedBox.classList.add("icon-status__active");
     displayRedBox.classList.add(`genRedBox${i + 1}`);

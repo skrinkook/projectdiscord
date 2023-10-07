@@ -23,41 +23,23 @@ for (let i = 0; i < numberOfServerIcons; i++){
             return;
         } else if (notificationsNumber <= 9) {
             console.log(notificationsNumber)
-            let displayRedBox = document.createElement("div");
-            displayRedBox.classList.add("icon-status__active");
-            displayRedBox.classList.add(`genRedBox${i + 1}`);
-            document.querySelector(`.genIconFrame${i + 1}`).appendChild(displayRedBox);
-            let displayNumber = document.createElement("p");
-            displayNumber.textContent = notificationsNumber;
-            displayNumber.classList.add("icon-status__active__number");
-            displayNumber.classList.add(`genDisplayNumber${i + 1}`);
-            document.querySelector(`.genRedBox${i + 1}`).appendChild(displayNumber);
+            generateRedPillAndNumber(i, notificationsNumber);
         } else if (notificationsNumber <= 99) {
-            console.log(notificationsNumber + " väčšie ako 10");
-            let displayRedBox = document.createElement("div");
-            displayRedBox.classList.add("icon-status__active");
-            displayRedBox.classList.add(`genRedBox${i + 1}`);
-            displayRedBox.style.width = "25px";
-            document.querySelector(`.genIconFrame${i + 1}`).appendChild(displayRedBox);
-            let displayNumber = document.createElement("p");
-            displayNumber.textContent = notificationsNumber;
-            displayNumber.classList.add("icon-status__active__number");
-            displayNumber.classList.add(`genDisplayNumber${i + 1}`);
-            document.querySelector(`.genRedBox${i + 1}`).appendChild(displayNumber);
+            generateRedPillAndNumber(i, notificationsNumber);
+            let displayRedBox = document.querySelector(`.genRedBox${i + 1}`)
+            displayRedBox.style.width = "25px"
         } else if (notificationsNumber <= 999) {
             console.log(notificationsNumber + " väčšie ako 10");
-            let displayRedBox = document.createElement("div");
-            displayRedBox.classList.add("icon-status__active");
-            displayRedBox.classList.add(`genRedBox${i + 1}`);
+            generateRedPillAndNumber(i, notificationsNumber);
+            let displayRedBox = document.querySelector(`.genRedBox${i + 1}`)
             displayRedBox.style.width = "30px";
-            document.querySelector(`.genIconFrame${i + 1}`).appendChild(displayRedBox);
-            let displayNumber = document.createElement("p");
-            displayNumber.textContent = notificationsNumber;
-            displayNumber.classList.add("icon-status__active__number");
-            displayNumber.classList.add(`genDisplayNumber${i + 1}`);
-            document.querySelector(`.genRedBox${i + 1}`).appendChild(displayNumber);
         } else {
             console.log(notificationsNumber + " bolo väčšie alebo rovné ako 1000")
+            generateRedPillAndNumber(i, notificationsNumber);
+            let displayRedBox = document.querySelector(`.genRedBox${i + 1}`)
+            displayRedBox.style.width = "30px"; 
+            let overwrite = document.querySelector(`.genDisplayNumber${i + 1}`);
+            overwrite.textContent = "1K+";
         }
 
       });

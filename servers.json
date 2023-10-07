@@ -3,7 +3,7 @@
         {
             "name": "Midjourney",
             "icon": "/icons/Midjourney_Emblem.ico",
-            "notifications": 1240,
+            "notifications": 1200,
             "pill": 1,
             "verified": "verified",
             "muted": 1,
