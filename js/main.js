@@ -129,7 +129,7 @@ const numberOfChannelsOpened = 30;
 
 for (i = 0; i < numberOfChannelsOpened; i++){
     let div = document.createElement("div");
-    div.classList.add("whitefillblock");
+    div.classList.add("message-column__element");
     document.querySelector(".message-column__upperhalf").appendChild(div);
 }
 
@@ -137,3 +137,9 @@ document.addEventListener("contextmenu", (event) => {
     event.preventDefault();
    });
    
+//Odstráni family center element po kliknutí 
+document.querySelector("#familyCenterClose").addEventListener("click", function(e){
+    const removeElement = document.querySelector("#familyCenterElement");
+    removeElement.remove();
+})
+

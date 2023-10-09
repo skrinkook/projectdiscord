@@ -31,6 +31,7 @@ font-family: 'Sans-GG-Semibold';
     --BGCOLOR-DISCORD-LOGO: rgb(90, 106, 239);
     --BGCOLOR-SPEECH-BUBBLE: #0e0e0e;
     --BGCOLOR-PILL: white;
+    --BGCOLOR-MESSAGE-ELEMENT-ACTIVE: rgb(57, 60, 66);
 
     /* || OTHER COLORS */
     --COLOR-HEADER-BORDER-BOTTOM: hsl(0, 0%, 0%, 0.2);
@@ -62,6 +63,18 @@ html, body {
     font-family: var(--FONT-SEMIBOLD);
     user-select: none;
     scroll-behavior: smooth;
+    color: var(--FONTCOLOR-MENU);
+}
+
+h3 {
+    font-family: var(--FONT-SEMIBOLD);
+    font-size: var(--FONTSIZE-H3);
+    color: var(--FONTCOLOR-MENU);
+}
+
+h2 {
+    font-family: var(--FONT-MEDIUM);
+    font-size: var(--FONTSIZE-H2);
 }
 
 .main-container {
@@ -368,22 +381,41 @@ div::-webkit-scrollbar {
 .message-column__element:hover,
 .message-column__element:focus {
     background-color: var(--BGCOLOR-HEADER-CONTAINER-LIGHT);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.message-column__element:active {
+    background-color: var(--BGCOLOR-MESSAGE-ELEMENT-ACTIVE);
 }
 
 .message-column__friends-icon {
     width: 24px;
     height: 24px;
-    background-color: green;
+    background-color: var(--FONTCOLOR-MENU);
 }
 
 .message-column__friends-text {
-    width: 20px;
-    height: 20px;
-    background-color: red;
+    width: 150px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
 }
 
-.direct-messages__h2 {
-    font-size: var(--FONTSIZE-H3);
+.close-symbol {
+    width: 20px;
+    height: 20px;
+    background-color: var(--FONTCOLOR-MENU);
+    right: 0;
+    margin-left: auto;
+    display: none;
+}
+
+.message-column__element:hover .close-symbol {
+    display: block;
+}
+
+.direct-messages__h3 {
     text-transform: uppercase;
     color: var(--FONTCOLOR-MENU);
     padding: 18px 0 4px 10px;
@@ -412,10 +444,8 @@ div::-webkit-scrollbar {
     border-radius: 5px;
 }
 
-.online-title__h2 {
-    font-size: 12px;
+.online-title__h3 {
     text-transform: uppercase;
-    color: var(--FONTCOLOR-MENU);
     margin: 22px 0 12px 0;
 }
 
