@@ -1,5 +1,5 @@
-const numberOfServerIcons = 15;
-
+const numberOfServerIcons = 15; //bude treba upraviť aby číslo sa rovnalo počtu objektov servers v json file
+/*---------------------------------------------------------------------*/
 for (let i = 0; i < numberOfServerIcons; i++){
     //Div v ktorom bude ikonka, pill na boku a počet upozornení
     const div = document.createElement("div");
@@ -16,6 +16,7 @@ for (let i = 0; i < numberOfServerIcons; i++){
     //Čo sa má stať keď užívateľ dá myšku ikonku
     circle.addEventListener("mouseenter", function(e){
         console.log(`Dal si myšku na button ${i + 1}`);
+        //Zistí súradnice danej ikonky vzhľadom na veľkosť webstránky
         let element = document.querySelector(`.genIconFrame${i + 1}`);
         let rect = element.getBoundingClientRect();
         let position = {
@@ -23,6 +24,7 @@ for (let i = 0; i < numberOfServerIcons; i++){
           left: rect.left + window.scrollX,
         };
 
+        //Vygenerovanie html štruktúry pre speech Bubble
         let bodyElement = document.body;
         let speechBubble = document.createElement("div");
         speechBubble.classList.add("speech-bubble");
@@ -97,8 +99,7 @@ for (let i = 0; i < numberOfServerIcons; i++){
 
       });
 
-    // PILL
-
+    // Biely pill naboku, ak v json file je 1, vygeneruje ho
     fetchServersData().then(servers => {
         let pill = servers[i].pill;
         if (pill === 1) {
@@ -111,6 +112,7 @@ for (let i = 0; i < numberOfServerIcons; i++){
     });
 
 }
+/*---------------------------------------------------------------------*/
 
 //Odstráni scrollBubble počas scrollovania, ak scrollBubble bol odstránený už pri mouseleave evente, tak funkciu vráti
 document.querySelector(".left-scroller-guilds").addEventListener("scroll", function(e){
@@ -122,6 +124,7 @@ document.querySelector(".left-scroller-guilds").addEventListener("scroll", funct
     console.log("scroll test")
 })
 
+//Vygenerovanie prázdnych boxov na doplnenie stránky
 const numberOfChannelsOpened = 30;
 
 for (i = 0; i < numberOfChannelsOpened; i++){

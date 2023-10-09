@@ -37,13 +37,15 @@ font-family: 'Sans-GG-Semibold';
 
     /* || FONT COLORS */
     --FONTCOLOR-MENU: #949BA4;
+    --FONTCOLOR-SEARCHSIDE-BUTTON: hsl(0, 0%, 100%, 0.5);
+    --FONTCOLOR-SPEECH-BUBBLE: white;
 
     /* || FONT SIZES */
     --FONTSIZE-H1: 20px;
     --FONTSIZE-H2: 16px;
     --FONTSIZE-H3: 12px;
 
-    /* || FONT FAMILY */
+    /* || FONT FAMILIES */
     --FONT-BOLD: Sans-GG-Bold, sans-serif, Helvetica, Arial;
     --FONT-MEDIUM: Sans-GG-Medium, sans-serif, Helvetica, Arial;
     --FONT-REGULAR: Sans-GG-Regular, sans-serif, Helvetica, Arial;
@@ -163,7 +165,7 @@ div::-webkit-scrollbar {
   }
 
   .speech-bubble__text {
-        color: white;
+        color: var(--FONTCOLOR-SPEECH-BUBBLE);
         opacity: 85%;
         padding: 7px 12px 7px 12px;
         white-space: nowrap;
@@ -293,7 +295,7 @@ div::-webkit-scrollbar {
     border: none;
     border-radius: 5px;
     padding-left: 8px;
-    color: hsl(0, 0%, 100%, 0.5);
+    color: var(--FONTCOLOR-SEARCHSIDE-BUTTON);
     cursor: pointer;
     font-family: var(--FONT-MEDIUM);
 }

@@ -1,3 +1,4 @@
+//Slúži na získanie údajov z servers.json file
 function fetchServersData() {
     return fetch('servers.json')
       .then(response => response.json())
@@ -7,6 +8,7 @@ function fetchServersData() {
       });
   }
 
+//Vygeneruje Red pill a príslušné číslo podľa json file a priradí classes
 const generateRedPillAndNumber = function(i, notificationsNumber){
     let displayRedBox = document.createElement("div");
     displayRedBox.classList.add("icon-status__active");
