@@ -27,11 +27,28 @@ font-family: 'Sans-GG-Semibold';
     --BGCOLOR-SCROLLER-GUILDS: rgb(24, 25, 28);
     --BGCOLOR-HEADER-CONTAINER-DARKER: rgb(39, 41, 45);
     --BGCOLOR-HEADER-CONTAINER-LIGHT: rgb(45, 48, 53);
+    --BGCOLOR-NOTIFICATION-PILL: rgb(251, 54, 54);
+    --BGCOLOR-DISCORD-LOGO: rgb(90, 106, 239);
+    --BGCOLOR-SPEECH-BUBBLE: #0e0e0e;
+    --BGCOLOR-PILL: white;
+
+    /* || OTHER COLORS */
+    --COLOR-HEADER-BORDER-BOTTOM: hsl(0, 0%, 0%, 0.2);
 
     /* || FONT COLORS */
     --FONTCOLOR-MENU: #949BA4;
 
+    /* || FONT SIZES */
+    --FONTSIZE-H1: 20px;
+    --FONTSIZE-H2: 16px;
+    --FONTSIZE-H3: 12px;
 
+    /* || FONT FAMILY */
+    --FONT-BOLD: Sans-GG-Bold, sans-serif, Helvetica, Arial;
+    --FONT-MEDIUM: Sans-GG-Medium, sans-serif, Helvetica, Arial;
+    --FONT-REGULAR: Sans-GG-Regular, sans-serif, Helvetica, Arial;
+    --FONT-SEMIBOLD: Sans-GG-Semibold, sans-serif, Helvetica, Arial;
+    
     /* || SIZES */
     --HEADER-CONTAINER-SEARCH-SIDE-WIDTH: 240px;
     --HEADER-HEIGHT: 48px;
@@ -40,7 +57,7 @@ font-family: 'Sans-GG-Semibold';
 html, body {
     background-color: var(--BGCOLOR-SCROLLER-GUILDS);
     height: 100%;
-    font-family: Sans-GG-Semibold;
+    font-family: var(--FONT-SEMIBOLD);
     user-select: none;
     scroll-behavior: smooth;
 }
@@ -102,7 +119,7 @@ div::-webkit-scrollbar {
 /* This is selector for the logo on very top of the scroller */
 .scroller-server:first-child>.server-icon {
     border-radius: 30%;
-    background-color: rgb(90, 106, 239);
+    background-color: var(--BGCOLOR-DISCORD-LOGO);
 }
 
 .scroller-server:first-child>.pill {
@@ -120,46 +137,55 @@ div::-webkit-scrollbar {
 .speech-bubble {
     position: absolute;
     left: 82px;
-    width: 200px;
-    height: 35px;
     z-index: 9999;
     top: 0;
+    display: inline-block;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
   
   .rectangle {
     position: absolute;
-    background-color: #000;
-    width: 100%;
-    height: 100%;
+    background-color: var(--BGCOLOR-SPEECH-BUBBLE);
     border-radius: 5px;
+    top: -3px;
   }
   
   .triangle {
     position: absolute;
-    top: 50%;
+    top: 14px;
     left: -7px;
     transform: translateY(-50%);
     width: 0;
     height: 0;
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
-    border-right: 8px solid #000;
+    border-right: 8px solid var(--BGCOLOR-SPEECH-BUBBLE);
   }
 
-@keyframes serverIconAnimation {
-    0% {
-        border-radius: 50%;
+  .speech-bubble__text {
+        color: white;
+        opacity: 85%;
+        padding: 7px 12px 7px 12px;
+        white-space: nowrap;
+        font-size: 15px;
+  }
+
+ @keyframes increaseSize {
+    from {
+      transform: scale(0.9);
+      opacity: 50%;
     }
-    100% {
-        border-radius: 25%;
+    to {
+      transform: scale(1);
+      opacity: 100%;
     }
-}
+  }
 
 .icon-status__active {
     position: absolute;
     width: 20px; /*Pre 3-ciferné číslo bude hodnota 30px*/
     height: 20px;
-    background-color: rgb(251, 54, 54);
+    background-color: var(--BGCOLOR-NOTIFICATION-PILL);
     border-radius: 10px;
     bottom: -2px;
     right: -2px;
@@ -173,7 +199,7 @@ div::-webkit-scrollbar {
     position: absolute;
     width: 10px;
     height: 10px; /* Hover value is 28px */
-    background-color: white;
+    background-color: var(--BGCOLOR-PILL);
     left: -5px;
     border-radius: 5px;
     opacity: 90%;
@@ -204,7 +230,7 @@ div::-webkit-scrollbar {
 
 .icon-status__active__number {
     font-size: 11px;
-    font-family: Sans-GG-Bold, sans-serif;
+    font-family: var(--FONT-BOLD);
     color: white;
 }
 
@@ -236,7 +262,7 @@ div::-webkit-scrollbar {
     border-radius: 10px 0 0 0;
     display: flex;
     flex-direction: row;
-    border-bottom: 1px solid hsl(0, 0%, 0%, 0.2);
+    border-bottom: 1px solid var(--COLOR-HEADER-BORDER-BOTTOM);
 }
 
 .search-side {
@@ -269,7 +295,7 @@ div::-webkit-scrollbar {
     padding-left: 8px;
     color: hsl(0, 0%, 100%, 0.5);
     cursor: pointer;
-    font-family: Sans-GG-Medium, sans-serif;
+    font-family: var(--FONT-MEDIUM);
 }
 
 .buttons-side__left {
@@ -325,16 +351,37 @@ div::-webkit-scrollbar {
     padding: 8px 8px 0 8px;
 }
 
-.whitefillblock {
+.message-column__element {
     height: 44px;
     width: 100%;
-    border: 2px solid rgba(255, 255, 255, 0.5);
+    /*border: 2px solid rgba(255, 255, 255, 0.5);*/
     margin-bottom: 3px;
     border-radius: 5px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    padding: 0 8px 0 8px;
+}
+
+.message-column__element:hover,
+.message-column__element:focus {
+    background-color: var(--BGCOLOR-HEADER-CONTAINER-LIGHT);
+}
+
+.message-column__friends-icon {
+    width: 24px;
+    height: 24px;
+    background-color: green;
+}
+
+.message-column__friends-text {
+    width: 20px;
+    height: 20px;
+    background-color: red;
 }
 
 .direct-messages__h2 {
-    font-size: 12px;
+    font-size: var(--FONTSIZE-H3);
     text-transform: uppercase;
     color: var(--FONTCOLOR-MENU);
     padding: 18px 0 4px 10px;
@@ -381,9 +428,9 @@ div::-webkit-scrollbar {
 }
 
 #active-now__h1 {
-    font-family: Sans-GG-Bold, sans-serif;
+    font-family: var(--FONT-BOLD);
     color: white;
-    font-size: 20px;
+    font-size: var(--FONTSIZE-H1);
     margin-bottom: 20px;
 }
 

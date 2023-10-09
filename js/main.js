@@ -1,16 +1,19 @@
 const numberOfServerIcons = 15;
 
 for (let i = 0; i < numberOfServerIcons; i++){
+    //Div v ktorom bude ikonka, pill na boku a počet upozornení
     const div = document.createElement("div");
     div.classList.add("scroller-server");
     div.classList.add(`gen${i + 1}`);
     document.querySelector(".left-scroller-guilds").appendChild(div);
 
-    //CIRCLE FRAME
+    //Vygeneruje samotný kruh pre ikonku serveru
     const circle = document.createElement("div");
     circle.classList.add("server-icon");
     circle.classList.add(`genIconFrame${i + 1}`);
+
     //Hover Eventy
+    //Čo sa má stať keď užívateľ dá myšku ikonku
     circle.addEventListener("mouseenter", function(e){
         console.log(`Dal si myšku na button ${i + 1}`);
         let element = document.querySelector(`.genIconFrame${i + 1}`);
@@ -24,6 +27,7 @@ for (let i = 0; i < numberOfServerIcons; i++){
         let speechBubble = document.createElement("div");
         speechBubble.classList.add("speech-bubble");
         speechBubble.classList.add(`genSpeechBubble${i + 1}`);
+        speechBubble.style.animation = "increaseSize 0.15s forwards";
         bodyElement.appendChild(speechBubble);
         let rectangle = document.createElement("div");
         rectangle.classList.add("rectangle");
@@ -33,15 +37,30 @@ for (let i = 0; i < numberOfServerIcons; i++){
         triangle.classList.add("triangle");
         triangle.classList.add(`genTriangle${i + 1}`)
         speechBubble.appendChild(triangle);
+        let p = document.createElement("p");
+        p.innerHTML = "Lorem Ipsum looooool<br> lol";
+        p.classList.add("speech-bubble__text");
+        p.classList.add(`genBubbleText${i + 1}`);
+        rectangle.appendChild(p);
 
-        speechBubble.style.top = `${(position.top) + 6}px`; 
+        speechBubble.style.top = `${(position.top) + 8}px`; 
+        fetchServersData().then(servers => {
+            p.innerHTML = `${servers[i].name}`;
+          });
     })
+
+    //Odstráni speech bubble, potom čo používateľ odišiel myškou preč
+    //Podmienka if overí, či speechBubble nebol odstráni pri scroll Evente
     circle.addEventListener("mouseleave", function(e){
         let speechBubble = document.querySelector(`.genSpeechBubble${i + 1}`);
+        if (speechBubble === null){
+            return;
+        }
         speechBubble.remove();
         console.log(`Odišiel si s myškou z buttonu ${i + 1}`)
     })
 
+    //Nastaví obrázok pre daný server
     fetchServersData().then(servers => {
         circle.style.backgroundImage = `url(..${servers[i].icon})`
       });
@@ -92,6 +111,16 @@ for (let i = 0; i < numberOfServerIcons; i++){
     });
 
 }
+
+//Odstráni scrollBubble počas scrollovania, ak scrollBubble bol odstránený už pri mouseleave evente, tak funkciu vráti
+document.querySelector(".left-scroller-guilds").addEventListener("scroll", function(e){
+    let speechBubble = document.querySelector(".speech-bubble");
+    if (speechBubble === null) {
+        return;
+    }
+    speechBubble.remove();
+    console.log("scroll test")
+})
 
 const numberOfChannelsOpened = 30;
 
