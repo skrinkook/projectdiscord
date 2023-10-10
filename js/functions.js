@@ -20,3 +20,14 @@ const generateRedPillAndNumber = function(i, notificationsNumber){
     displayNumber.classList.add(`genDisplayNumber${i + 1}`);
     document.querySelector(`.genRedBox${i + 1}`).appendChild(displayNumber);
 }
+
+//Získanie pozície elementu, vzhľadom na veľkosť dokumentu
+function getPosition(selector) {
+    let element = document.querySelector(selector);
+    let rect = element.getBoundingClientRect();
+    let position = {
+      top: rect.top + window.scrollY,
+      left: rect.left + window.scrollX,
+    };
+    return position;
+  }

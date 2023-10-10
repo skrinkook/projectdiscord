@@ -33,11 +33,15 @@ font-family: 'Sans-GG-Semibold';
     --BGCOLOR-PILL: white;
     --BGCOLOR-MESSAGE-ELEMENT-ACTIVE: rgb(57, 60, 66);
 
+    /* || ACTIVITY COLORS*/
+    --COLOR-ACTIVITY-ONLINE: rgb(44, 164, 93);
+
     /* || OTHER COLORS */
     --COLOR-HEADER-BORDER-BOTTOM: hsl(0, 0%, 0%, 0.2);
 
     /* || FONT COLORS */
     --FONTCOLOR-MENU: #949BA4;
+    --FONTCOLOR-MENU-HOVER: rgba(255, 255, 255, 0.85);
     --FONTCOLOR-SEARCHSIDE-BUTTON: hsl(0, 0%, 100%, 0.5);
     --FONTCOLOR-SPEECH-BUBBLE: white;
 
@@ -269,7 +273,7 @@ div::-webkit-scrollbar {
 }
 
 /* || HEADER */
-/* ---------------------- */
+/* ---------------------------------------------------------- */
 .header-container {
     width: 100%;
     min-height: var(--HEADER-HEIGHT);
@@ -381,7 +385,7 @@ div::-webkit-scrollbar {
 .message-column__element:hover,
 .message-column__element:focus {
     background-color: var(--BGCOLOR-HEADER-CONTAINER-LIGHT);
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--FONTCOLOR-MENU-HOVER);
 }
 
 .message-column__element:active {
@@ -399,27 +403,115 @@ div::-webkit-scrollbar {
     height: 40px;
     display: flex;
     align-items: center;
-    padding-left: 20px;
+    padding-left: 12px;
 }
 
 .close-symbol {
-    width: 20px;
-    height: 20px;
-    background-color: var(--FONTCOLOR-MENU);
+    width: 15px;
+    height: 15px;
     right: 0;
     margin-left: auto;
     display: none;
+    margin-bottom: 10px;
+    color: var(--FONTCOLOR-MENU);
+}
+
+.close-symbol:hover,
+.close-symbol:focus {
+    color: var(--FONTCOLOR-MENU-HOVER);
 }
 
 .message-column__element:hover .close-symbol {
     display: block;
 }
 
+.direct-messages__container {
+    width: 100%;
+    height: 38px;
+    padding: 18px 8px 4px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .direct-messages__h3 {
     text-transform: uppercase;
-    color: var(--FONTCOLOR-MENU);
-    padding: 18px 0 4px 10px;
+    color: var(--FONTCOLOR-MENU);   
 }
+
+.direct-messages__h3:hover,
+.direct-messages__h3:focus {
+    color: var(--FONTCOLOR-MENU-HOVER);
+}
+
+.direct-messages__add-symbol {
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+    color: var(--FONTCOLOR-MENU);
+    font-family: var(--FONT-REGULAR);
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2px;
+}
+.direct-messages__add-symbol:hover {
+    color: var(--FONTCOLOR-MENU-HOVER);
+}
+
+.element-pfp {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    background-color: var(--BGCOLOR-DISCORD-LOGO);
+    border-radius: 50%;
+}
+
+.green-circle {
+    position: absolute;
+    width: 16px; /*Pre 3-ciferné číslo bude hodnota 30px*/
+    height: 16px;
+    background-color: var(--COLOR-ACTIVITY-ONLINE);
+    border-radius: 10px;
+    bottom: -2px;
+    right: -2px;
+    border: 3px solid var(--BGCOLOR-HEADER-CONTAINER-DARKER);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.element-text {
+    display: inline-block;
+    margin-left: 12px;
+    line-height: 0.9;
+}
+
+.element-activity {
+    font-family: var(--FONT-MEDIUM);
+    font-size: var(--FONTSIZE-H3);
+    color: var(--FONTCOLOR-MENU);
+}
+
+.material-icons {
+    transform: rotate(45deg);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .message-column__footer {
     width: 100%;

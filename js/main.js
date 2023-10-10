@@ -143,3 +143,8 @@ document.querySelector("#familyCenterClose").addEventListener("click", function(
     removeElement.remove();
 })
 
+document.querySelector(".direct-messages__add-symbol").addEventListener("click", function(e){
+    console.log("add symbol")
+})
+
+console.log(`Position from top: ${getPosition(".direct-messages__add-symbol").top}`);
