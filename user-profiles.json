@@ -1,7 +1,284 @@
 {
     "users": [
         {
-            "name": "test"
+            "name": "MysticShadow",
+            "id": "mysticshadow091",
+            "active-status": "online",
+            "opened": 1,
+            "activity": "League of Legends"
+        },
+        {
+            "name": "ThunderWolf",
+            "id": "thunderwolf123",
+            "active-status": "away",
+            "opened": 0,
+            "activity": 0
+        },
+        {
+            "name": "EpicGamer",
+            "id": "epicgamer007",
+            "active-status": "online",
+            "opened": 0,
+            "activity": "Grand Theft Auto V"
+        },
+        {
+            "name": "NinjaCat",
+            "id": "ninjacat42",
+            "active-status": "offline",
+            "opened": 0,
+            "activity": 0
+        },
+        {
+            "name": "TechGeek",
+            "id": "techgeek99",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": "Cyberpunk"
+        },
+        {
+            "name": "MusicLover",
+            "id": "musiclover88",
+            "active-status": "offline",
+            "opened": 0,
+            "activity": "Spotify"
+        },
+        {
+            "name": "GamerGirl",
+            "id": "gamergirl123",
+            "active-status": "online",
+            "opened": 1,
+            "activity": 0
+        },
+        {
+            "name": "NatureLover",
+            "id": "naturelover27",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": "Minecraft"
+        },
+        {
+            "name": "CodingWizard",
+            "id": "codingwizard42",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": "Grand Theft Auto V"
+        },
+        {
+            "name": "ArtisticSoul",
+            "id": "artisticsoul11",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": 0
+        },
+        {
+            "name": "Traveler",
+            "id": "traveler2023",
+            "active-status": "away",
+            "opened": 1,
+            "activity": "Minecraft"
+        },
+        {
+            "name": "GadgetGuru",
+            "id": "gadgetguru3",
+            "active-status": "offline",
+            "opened": 0,
+            "activity": "Cyberpunk"
+        },
+        {
+            "name": "Bookworm",
+            "id": "bookworm55",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": 0
+        },
+        {
+            "name": "SportsFanatic",
+            "id": "sportsfanatic7",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": "Grand Theft Auto V"
+        },
+        {
+            "name": "Foodie",
+            "id": "foodie123",
+            "active-status": "notdisturb",
+            "opened": 1,
+            "activity": 0
+        },
+        {
+            "name": "MovieBuff",
+            "id": "moviebuff21",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": "Cyberpunk"
+        },
+        {
+            "name": "TechEnthusiast",
+            "id": "techenthusiast9",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": 0
+        },
+        {
+            "name": "HikingAdventurer",
+            "id": "hikingadventurer4",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": "Minecraft"
+        },
+        {
+            "name": "ChessMaster",
+            "id": "chessmaster87",
+            "active-status": "online",
+            "opened": 1,
+            "activity": "Grand Theft Auto V"
+        },
+        {
+            "name": "NatureExplorer",
+            "id": "natureexplorer22",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": 0
+        },
+        {
+            "name": "FitnessJunkie",
+            "id": "fitnessjunkie16",
+            "active-status": "online",
+            "opened": 1,
+            "activity": "Spotify"
+        },
+        {
+            "name": "SoccerFan",
+            "id": "soccerfan8",
+            "active-status": "away",
+            "opened": 0,
+            "activity": 0
+        },
+        {
+            "name": "TechSavvy",
+            "id": "techsavvy99",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": "Cyberpunk"
+        },
+        {
+            "name": "CookingEnthusiast",
+            "id": "cookingenthusiast6",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": "Minecraft"
+        },
+        {
+            "name": "SpaceGeek",
+            "id": "spacegeek2023",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": "Grand Theft Auto V"
+        },
+        {
+            "name": "PetLover",
+            "id": "petlover123",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": 0
+        },
+        {
+            "name": "TechNerd",
+            "id": "technerd77",
+            "active-status": "online",
+            "opened": 1,
+            "activity": 0
+        },
+        {
+            "name": "ArtFanatic",
+            "id": "artfanatic55",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": "Minecraft"
+        },
+        {
+            "name": "CoffeeLover",
+            "id": "coffeelover88",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": "Cyberpunk"
+        },
+        {
+            "name": "YogaEnthusiast",
+            "id": "yogaenthusiast3",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": 0
+        },
+        {
+            "name": "TravelBlogger",
+            "id": "travelblogger22",
+            "active-status": "notdisturb",
+            "opened": 1,
+            "activity": "Spotify"
+        },
+        {
+            "name": "GamerDude",
+            "id": "gamerdude77",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": "League of Legends"
+        },
+        {
+            "name": "NaturePhotographer",
+            "id": "naturephotographer8",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": 0
+        },
+        {
+            "name": "FoodExplorer",
+            "id": "foodexplorer123",
+            "active-status": "away",
+            "opened": 1,
+            "activity": "Minecraft"
+        },
+        {
+            "name": "CodingPro",
+            "id": "codingpro4",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": 0
+        },
+        {
+            "name": "MusicAddict",
+            "id": "musicaddict99",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": "Spotify"
+        },
+        {
+            "name": "FitnessFreak",
+            "id": "fitnessfreak16",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": "Cyberpunk"
+        },
+        {
+            "name": "MovieLover",
+            "id": "movielover21",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": "Grand Theft Auto V"
+        },
+        {
+            "name": "TechGuru",
+            "id": "techguru9",
+            "active-status": "online",
+            "opened": 0,
+            "activity": 0
+        },
+        {
+            "name": "AnimalLover",
+            "id": "animallover4",
+            "active-status": "offline",
+            "opened": 1,
+            "activity": 0
         }
     ]
 }

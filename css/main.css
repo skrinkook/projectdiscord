@@ -35,6 +35,8 @@ font-family: 'Sans-GG-Semibold';
 
     /* || ACTIVITY COLORS*/
     --COLOR-ACTIVITY-ONLINE: rgb(44, 164, 93);
+    --COLOR-ACTIVITY-AWAY: rgb(236, 175, 64);
+    --COLOR-ACTIVITY-NOTDISTURB: rgb(238, 64, 71);
 
     /* || OTHER COLORS */
     --COLOR-HEADER-BORDER-BOTTOM: hsl(0, 0%, 0%, 0.2);
@@ -468,7 +470,9 @@ div::-webkit-scrollbar {
     border-radius: 50%;
 }
 
-.green-circle {
+/* || Active States */
+/* Online */
+.online-circle {
     position: absolute;
     width: 16px; /*Pre 3-ciferné číslo bude hodnota 30px*/
     height: 16px;
@@ -481,6 +485,94 @@ div::-webkit-scrollbar {
     justify-content: center;
     align-items: center;
 }
+.message-column__element:hover .online-circle {
+    border: 3px solid var(--BGCOLOR-HEADER-CONTAINER-LIGHT)
+}
+
+/* Offline */
+.offline-circle {
+    position: absolute;
+    width: 16px; /*Pre 3-ciferné číslo bude hodnota 30px*/
+    height: 16px;
+    background-color: var(--FONTCOLOR-MENU);
+    border-radius: 10px;
+    bottom: -2px;
+    right: -2px;
+    border: 3px solid var(--BGCOLOR-HEADER-CONTAINER-DARKER);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.offline-subcircle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: var(--BGCOLOR-HEADER-CONTAINER-DARKER);
+    border-radius: 50%;
+}
+.message-column__element:hover .offline-circle {
+    border: 3px solid var(--BGCOLOR-HEADER-CONTAINER-LIGHT);
+}
+.message-column__element:hover .offline-circle .offline-subcircle{
+    background-color: var(--BGCOLOR-HEADER-CONTAINER-LIGHT);
+}
+
+/* Away */
+.away-circle {
+    position: absolute;
+    width: 16px; /*Pre 3-ciferné číslo bude hodnota 30px*/
+    height: 16px;
+    background-color: var(--COLOR-ACTIVITY-AWAY);
+    border-radius: 10px;
+    bottom: -2px;
+    right: -2px;
+    border: 3px solid var(--BGCOLOR-HEADER-CONTAINER-DARKER);
+    display: flex;
+    overflow: hidden;
+}
+.away-subcircle {
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    width: 9px;
+    height: 9px;
+    background-color: var(--BGCOLOR-HEADER-CONTAINER-DARKER);
+    border-radius: 50%;
+}
+.message-column__element:hover .away-circle {
+    border: 3px solid var(--BGCOLOR-HEADER-CONTAINER-LIGHT);
+}
+.message-column__element:hover .away-circle .away-subcircle{
+    background-color: var(--BGCOLOR-HEADER-CONTAINER-LIGHT);
+}
+
+/* Do not Disturb */
+.notdisturb-circle {
+    position: absolute;
+    width: 16px; /*Pre 3-ciferné číslo bude hodnota 30px*/
+    height: 16px;
+    background-color: var(--COLOR-ACTIVITY-NOTDISTURB);
+    border-radius: 10px;
+    bottom: -2px;
+    right: -2px;
+    border: 3px solid var(--BGCOLOR-HEADER-CONTAINER-DARKER);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.notdisturb-subcircle {
+    position: absolute;
+    width: 7px;
+    height: 3px;
+    background-color: var(--BGCOLOR-HEADER-CONTAINER-DARKER)
+}
+.message-column__element:hover .notdisturb-circle {
+    border: 3px solid var(--BGCOLOR-HEADER-CONTAINER-LIGHT);
+}
+.message-column__element:hover .notdisturb .away-subcircle{
+    background-color: var(--BGCOLOR-HEADER-CONTAINER-LIGHT);
+}
+
 
 .element-text {
     display: inline-block;

@@ -8,6 +8,15 @@ function fetchServersData() {
       });
   }
 
+function fetchJsonData() {
+    return fetch('user-profiles.json')
+        .then(response => response.json())
+        .then(data => data.users)
+        .catch(error => {
+        console.error(error);
+        });
+}
+
 //Vygeneruje Red pill a príslušné číslo podľa json file a priradí classes
 const generateRedPillAndNumber = function(i, notificationsNumber){
     let displayRedBox = document.createElement("div");
@@ -31,3 +40,5 @@ function getPosition(selector) {
     };
     return position;
   }
+
+

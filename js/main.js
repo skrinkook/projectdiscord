@@ -46,7 +46,7 @@ for (let i = 0; i < numberOfServerIcons; i++){
         rectangle.appendChild(p);
 
         speechBubble.style.top = `${(position.top) + 8}px`; 
-        fetchServersData().then(servers => {
+        fetchServersData("servers.json").then(servers => {
             p.innerHTML = `${servers[i].name}`;
           });
     })
@@ -63,7 +63,7 @@ for (let i = 0; i < numberOfServerIcons; i++){
     })
 
     //Nastaví obrázok pre daný server
-    fetchServersData().then(servers => {
+    fetchServersData("servers.json").then(servers => {
         circle.style.backgroundImage = `url(..${servers[i].icon})`
       });
     document.querySelector(`.gen${i + 1}`).appendChild(circle);
@@ -71,7 +71,7 @@ for (let i = 0; i < numberOfServerIcons; i++){
     //Ak bude 0, tak nezobrazí nič
     //Inak vygeneruje red pill s číslom a podľa veľkosti čísla prispôsobí veľkosť pill
     //Ak upozornení bude viacej ako 1000, napíše 1K+
-    fetchServersData().then(servers => {
+    fetchServersData("servers.json").then(servers => {
         let notificationsNumber = servers[i].notifications;
         if (notificationsNumber === 0){
             console.log("bola to nula");
@@ -100,7 +100,7 @@ for (let i = 0; i < numberOfServerIcons; i++){
       });
 
     // Biely pill naboku, ak v json file je 1, vygeneruje ho
-    fetchServersData().then(servers => {
+    fetchServersData("servers.json").then(servers => {
         let pill = servers[i].pill;
         if (pill === 1) {
             const pill = document.createElement("div");
@@ -124,15 +124,67 @@ document.querySelector(".left-scroller-guilds").addEventListener("scroll", funct
     console.log("scroll test")
 })
 
-//Vygenerovanie prázdnych boxov na doplnenie stránky
-const numberOfChannelsOpened = 30;
+//Vygenerovanie užívateľov
+/*---------------------------------------------------------------------*/
+fetchJsonData().then(users => {
+    let userProfiles = users;
+    openedProfiles = userProfiles.filter(user => user.opened === 1);
+    for (i = 0; i < openedProfiles.length; i++){
+        let columnElement = document.createElement("div");
+        columnElement.classList.add("message-column__element");
+        columnElement.classList.add(`columnElementGen${i + 1}`)
+        document.querySelector(".message-column__upperhalf").appendChild(columnElement);
 
-for (i = 0; i < numberOfChannelsOpened; i++){
-    let div = document.createElement("div");
-    div.classList.add("message-column__element");
-    document.querySelector(".message-column__upperhalf").appendChild(div);
-}
+        let elementPfp = document.createElement("div");
+        elementPfp.classList.add("element-pfp");
+        elementPfp.classList.add(`pfpGen${i + 1}`);
+        //Vygeneroanie random farby || Zrejme to zmením lebo po každom cmd R je to ine, alebo ulozit do local storage
+        const randomColor = '#' + Math.random().toString(16).substr(2, 6);
+        elementPfp.style.backgroundColor = randomColor;
+        document.querySelector(`.columnElementGen${i + 1}`).appendChild(elementPfp);
 
+        //Pokiaľ je užívateľ online
+        if (openedProfiles[i]["active-status"] === "online") {
+            let onlineCircle = document.createElement("div");
+            onlineCircle.classList.add("online-circle");
+            document.querySelector(`.pfpGen${i + 1}`).appendChild(onlineCircle);
+        //Pokiaĺ je užívateľ away
+        } else if (openedProfiles[i]["active-status"] === "away") {
+            let awayCircle = document.createElement("div");
+            let awaySubCircle = document.createElement("div");
+            awayCircle.classList.add("away-circle");
+            awayCircle.classList.add(`away-circleGen${i + 1}`)
+            awaySubCircle.classList.add("away-subcircle");
+            document.querySelector(`.pfpGen${i + 1}`).appendChild(awayCircle);
+            document.querySelector(`.away-circleGen${i + 1}`).appendChild(awaySubCircle);
+        //Pokiaľ je užívaľ Not Disturb
+        } else if (openedProfiles[i]["active-status"] === "notdisturb"){
+            let notDisturbCircle = document.createElement("div");
+            let notDisturbSubCircle = document.createElement("div");
+            notDisturbCircle.classList.add("notdisturb-circle");
+            notDisturbCircle.classList.add(`notdisturb-circleGen${i + 1}`);
+            notDisturbSubCircle.classList.add("notdisturb-subcircle");
+            document.querySelector(`.pfpGen${i + 1}`).appendChild(notDisturbCircle);
+            document.querySelector(`.notdisturb-circleGen${i + 1}`).appendChild(notDisturbSubCircle);
+        } else {
+            let offlineCircle = document.createElement("div");
+            let offlineSubCircle = document.createElement("div");
+            offlineCircle.classList.add("offline-circle");
+            offlineCircle.classList.add(`offline-circleGen${i + 1}`);
+            offlineSubCircle.classList.add("offline-subcircle");
+            document.querySelector(`.pfpGen${i + 1}`).appendChild(offlineCircle);
+            document.querySelector(`.offline-circleGen${i + 1}`).appendChild(offlineSubCircle);
+        }
+        
+
+
+
+        
+    }
+
+  });
+
+//Vypne context menu pri right click na stránke
 document.addEventListener("contextmenu", (event) => {
     event.preventDefault();
    });
@@ -143,8 +195,15 @@ document.querySelector("#familyCenterClose").addEventListener("click", function(
     removeElement.remove();
 })
 
+//Kliknutie na + tlačítko
 document.querySelector(".direct-messages__add-symbol").addEventListener("click", function(e){
     console.log("add symbol")
 })
 
 console.log(`Position from top: ${getPosition(".direct-messages__add-symbol").top}`);
+
+document.querySelector("#closeElement1").addEventListener("click", function(e){
+    const removeElement = document.querySelector("#element1");
+    removeElement.remove();
+})
+
