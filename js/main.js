@@ -157,7 +157,7 @@ fetchJsonData().then(users => {
             awaySubCircle.classList.add("away-subcircle");
             document.querySelector(`.pfpGen${i + 1}`).appendChild(awayCircle);
             document.querySelector(`.away-circleGen${i + 1}`).appendChild(awaySubCircle);
-        //Pokiaľ je užívaľ Not Disturb
+        //Pokiaľ je užívateľ Not Disturb
         } else if (openedProfiles[i]["active-status"] === "notdisturb"){
             let notDisturbCircle = document.createElement("div");
             let notDisturbSubCircle = document.createElement("div");
@@ -176,10 +176,34 @@ fetchJsonData().then(users => {
             document.querySelector(`.offline-circleGen${i + 1}`).appendChild(offlineSubCircle);
         }
         
-
-
-
+        //generovanie textu
+        let userName = document.createElement("h2");
+        userName.textContent = openedProfiles[i]["name"];
+        userName.classList.add("element-text");
+        //userName.style.fontSize = "15px";
+         document.querySelector(`.columnElementGen${i + 1}`).appendChild(userName);
         
+
+
+        //close tlačítko
+        let closeButton = document.createElement("i");
+        closeButton.classList.add("close-symbol", "material-icons");
+        closeButton.setAttribute("id", `close-symbolGen${i + 1}`)
+        closeButton.innerHTML = "add";
+        document.querySelector(`.columnElementGen${i + 1}`).appendChild(closeButton);
+        
+        let selector = i;
+        closeButton.addEventListener("click", function(e){
+            console.log(selector + 1)
+        })
+        
+        
+
+
+
+
+
+
     }
 
   });
@@ -202,8 +226,4 @@ document.querySelector(".direct-messages__add-symbol").addEventListener("click",
 
 console.log(`Position from top: ${getPosition(".direct-messages__add-symbol").top}`);
 
-document.querySelector("#closeElement1").addEventListener("click", function(e){
-    const removeElement = document.querySelector("#element1");
-    removeElement.remove();
-})
 
