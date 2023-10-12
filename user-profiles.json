@@ -24,7 +24,7 @@
         {
             "name": "NinjaCat",
             "id": "ninjacat42",
-            "active-status": "offline",
+            "active-status": "online",
             "opened": 0,
             "activity": 0
         },
@@ -52,7 +52,7 @@
         {
             "name": "NatureLover",
             "id": "naturelover27",
-            "active-status": "offline",
+            "active-status": "online",
             "opened": 1,
             "activity": "Minecraft"
         },

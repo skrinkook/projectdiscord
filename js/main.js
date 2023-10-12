@@ -180,10 +180,35 @@ fetchJsonData().then(users => {
         let userName = document.createElement("h2");
         userName.textContent = openedProfiles[i]["name"];
         userName.classList.add("element-text");
+        userName.classList.add(`element-textGen${i + 1}`);
         //userName.style.fontSize = "15px";
-         document.querySelector(`.columnElementGen${i + 1}`).appendChild(userName);
-        
+        document.querySelector(`.columnElementGen${i + 1}`).appendChild(userName);
 
+        if (openedProfiles[i]["active-status"] !== "offline" && openedProfiles[i]["activity"] !== 0) {
+            let selector = i;
+           
+                let text = document.querySelector(`.element-textGen${selector + 1}`);
+                let br = document.createElement("br");
+                let span = document.createElement("span");
+                if (openedProfiles[selector]["activity"] !== "Spotify"){
+                span.textContent = `Playing ${openedProfiles[selector]["activity"]}`;
+                } else {
+                    span.textContent = `Listening to ${openedProfiles[selector]["activity"]}`;
+                }
+                span.classList.add("element-activity");
+                text.appendChild(br);
+                text.appendChild(span);
+
+
+
+
+
+
+
+
+
+
+        }
 
         //close tlačítko
         let closeButton = document.createElement("i");
@@ -191,19 +216,14 @@ fetchJsonData().then(users => {
         closeButton.setAttribute("id", `close-symbolGen${i + 1}`)
         closeButton.innerHTML = "add";
         document.querySelector(`.columnElementGen${i + 1}`).appendChild(closeButton);
-        
+
         let selector = i;
         closeButton.addEventListener("click", function(e){
-            console.log(selector + 1)
+            openedProfiles[selector]["opened"] = 0;
+            let removeElement = document.querySelector(`.columnElementGen${selector + 1}`);
+            removeElement.remove();
+            console.log(openedProfiles);
         })
-        
-        
-
-
-
-
-
-
     }
 
   });
