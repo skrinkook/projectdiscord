@@ -26,6 +26,7 @@ font-family: 'Sans-GG-Semibold';
     /* || BACKGROUND COLORS */
     --BGCOLOR-SCROLLER-GUILDS: rgb(24, 25, 28);
     --BGCOLOR-HEADER-CONTAINER-DARKER: rgb(39, 41, 45);
+    --BGCOLOR-MESSAGECOLUMN-FOOTER: rgb(29, 30, 34);
     --BGCOLOR-HEADER-CONTAINER-LIGHT: rgb(45, 48, 53);
     --BGCOLOR-NOTIFICATION-PILL: rgb(251, 54, 54);
     --BGCOLOR-DISCORD-LOGO: rgb(90, 106, 239);
@@ -46,6 +47,7 @@ font-family: 'Sans-GG-Semibold';
     --FONTCOLOR-MENU-HOVER: rgba(255, 255, 255, 0.85);
     --FONTCOLOR-SEARCHSIDE-BUTTON: hsl(0, 0%, 100%, 0.5);
     --FONTCOLOR-SPEECH-BUBBLE: white;
+    --FONTCOLOR-INPUT-SEARCH: rgba(255, 255, 255, 0.75);
 
     /* || FONT SIZES */
     --FONTSIZE-H1: 20px;
@@ -161,7 +163,7 @@ div::-webkit-scrollbar {
     z-index: 9999;
     top: 0;
     display: inline-block;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
   }
   
   .rectangle {
@@ -468,6 +470,8 @@ div::-webkit-scrollbar {
     height: 32px;
     background-color: var(--BGCOLOR-DISCORD-LOGO);
     border-radius: 50%;
+    background-position: center;
+    background-size: cover;
 }
 
 /* || Active States */
@@ -590,25 +594,74 @@ div::-webkit-scrollbar {
     transform: rotate(45deg);
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .message-column__footer {
     width: 100%;
     min-height: 52px;
-    background-color: var(--BGCOLOR-SCROLLER-GUILDS);
+    background-color: var(--BGCOLOR-MESSAGECOLUMN-FOOTER);
+    display: flex;
+    padding: 6px 8px 6px 8px;
+    justify-content: space-between;
+}
+
+.footer__left {
+    width: 120px;
+    height: 100%;
+    background-color: var(--BGCOLOR-MESSAGECOLUMN-FOOTER);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 3px;
+    cursor: pointer;
+}
+.footer__left:hover,
+.footer__left:focus {
+    background-color: var(--BGCOLOR-MESSAGE-ELEMENT-ACTIVE);
+}
+
+.footer__right {
+    width: 100px;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.footer_button {
+    width: 30px;
+    height: 32px;
+    margin-left: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.microphoneOFF {
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.microphoneON {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.soundsOFF {
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.soundsON {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer_button:hover,
+.footer_button:focus {
+    background-color: var(--BGCOLOR-MESSAGE-ELEMENT-ACTIVE);
 }
 
 /*Second Column*/
@@ -616,21 +669,88 @@ div::-webkit-scrollbar {
     width: 100%;
     height: 100%;
     background-color: var(--BGCOLOR-HEADER-CONTAINER-LIGHT);
-    padding: 0 25px 0 25px;
     overflow-y: auto;
 }
 
+.column2__inputsection {
+    padding: 13px 25px 0 25px;
+}
 .inputsearch {
     width: 100%;
-    height: 31px;
+    height: 34px;
     background-color: var(--BGCOLOR-SCROLLER-GUILDS);
-    margin-top: 20px;
+    border-radius: 5px;
+    display: flex;
+    position: relative;
+}
+.input-icon-part {
+    height: 100%;
+    width: 34px;
+    background-color: var(--BGCOLOR-SCROLLER-GUILDS);
+    position: absolute;
+    right: 0;
     border-radius: 5px;
 }
+.inputsearch__input {
+    background-color: var(--BGCOLOR-SCROLLER-GUILDS);
+    border: none;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    font-size: 16px;
+    padding-left: 10px;
+    color: var(--FONTCOLOR-INPUT-SEARCH);
+
+}
+.inputsearch__input::placeholder{
+    color: var(--FONTCOLOR-MENU);
+}
+
+.column2__elementsection {
+    padding: 0 12px 0 12px;
+}
+
+.column2__elementouter {
+    padding: 0 13px 0 13px;
+    border-radius: 8px;
+    height: 61px;
+}
+.column2__element {
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid var(--BGCOLOR-MESSAGE-ELEMENT-ACTIVE);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+}
+.column2__elementouter:hover,
+.column2__elementouter:focus {
+    background-color: var(--BGCOLOR-MESSAGE-ELEMENT-ACTIVE);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .online-title__h3 {
     text-transform: uppercase;
-    margin: 22px 0 12px 0;
+    margin: 22px 0 18px 25px;
 }
 
 /*Third Column*/

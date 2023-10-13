@@ -114,7 +114,7 @@ for (let i = 0; i < numberOfServerIcons; i++){
 }
 /*---------------------------------------------------------------------*/
 
-//Odstráni scrollBubble počas scrollovania, ak scrollBubble bol odstránený už pri mouseleave evente, tak funkciu vráti
+//Odstráni speechBubble počas scrollovania, ak scrollBubble bol odstránený už pri mouseleave evente, tak funkciu vráti
 document.querySelector(".left-scroller-guilds").addEventListener("scroll", function(e){
     let speechBubble = document.querySelector(".speech-bubble");
     if (speechBubble === null) {
@@ -138,7 +138,7 @@ fetchJsonData().then(users => {
         let elementPfp = document.createElement("div");
         elementPfp.classList.add("element-pfp");
         elementPfp.classList.add(`pfpGen${i + 1}`);
-        //Vygeneroanie random farby || Zrejme to zmením lebo po každom cmd R je to ine, alebo ulozit do local storage
+        //Vygeneroanie random farby || Zrejme to zmením lebo po každom refresh je to ine, alebo ulozit do local storage
         const randomColor = '#' + Math.random().toString(16).substr(2, 6);
         elementPfp.style.backgroundColor = randomColor;
         document.querySelector(`.columnElementGen${i + 1}`).appendChild(elementPfp);
@@ -166,6 +166,7 @@ fetchJsonData().then(users => {
             notDisturbSubCircle.classList.add("notdisturb-subcircle");
             document.querySelector(`.pfpGen${i + 1}`).appendChild(notDisturbCircle);
             document.querySelector(`.notdisturb-circleGen${i + 1}`).appendChild(notDisturbSubCircle);
+        //Poiaľ je užívateľ offline
         } else {
             let offlineCircle = document.createElement("div");
             let offlineSubCircle = document.createElement("div");
@@ -175,7 +176,6 @@ fetchJsonData().then(users => {
             document.querySelector(`.pfpGen${i + 1}`).appendChild(offlineCircle);
             document.querySelector(`.offline-circleGen${i + 1}`).appendChild(offlineSubCircle);
         }
-        
         //generovanie textu
         let userName = document.createElement("h2");
         userName.textContent = openedProfiles[i]["name"];
@@ -184,6 +184,7 @@ fetchJsonData().then(users => {
         //userName.style.fontSize = "15px";
         document.querySelector(`.columnElementGen${i + 1}`).appendChild(userName);
 
+        //Pokiaľ užívateľ nebude offline a zároveň jeho aktivita sa nebude rovnať 0, tak vygeneruje span + pridá text (eg Playing Minecraft)
         if (openedProfiles[i]["active-status"] !== "offline" && openedProfiles[i]["activity"] !== 0) {
             let selector = i;
            
@@ -198,16 +199,6 @@ fetchJsonData().then(users => {
                 span.classList.add("element-activity");
                 text.appendChild(br);
                 text.appendChild(span);
-
-
-
-
-
-
-
-
-
-
         }
 
         //close tlačítko
@@ -217,6 +208,8 @@ fetchJsonData().then(users => {
         closeButton.innerHTML = "add";
         document.querySelector(`.columnElementGen${i + 1}`).appendChild(closeButton);
 
+        /*Click event na tlačítku
+        Odstráni príslušný element z HTML štruktúry a v poli nastavý hodnotu pre "opened" na 0*/
         let selector = i;
         closeButton.addEventListener("click", function(e){
             openedProfiles[selector]["opened"] = 0;
@@ -224,10 +217,74 @@ fetchJsonData().then(users => {
             removeElement.remove();
             console.log(openedProfiles);
         })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
   });
 
+//Footer
+/*---------------------------------------------------------------------*/
+const myProfile = [
+    {
+        "name": "🐾",
+        "id": "edkoxd",
+        "icon": "icons/myprofile-pfp.ico",
+        "active-status": "online"
+    }
+]
+
+let myPFP = document.querySelector("#myPFP");
+myPFP.style.backgroundImage = `url(../${myProfile[0].icon})`;
+
+let myElementText = document.querySelector("#myElementText");
+myElementText.style.marginLeft = "8px";
+myElementText.innerHTML = `${myProfile[0].name}<br><span class="element-activity" id="el1"> ${myProfile[0]["active-status"].toLowerCase()}</span>`;
+let el1 = document.querySelector("#el1");
+el1.style.fontFamily = "var(--FONT-REGULAR)";
+el1.style.cursor = "auto";
+
+document.querySelector(".microphone").addEventListener("click", function(e){
+    let microphoneOFF = document.querySelector(".microphoneOFF");
+    const computedStyle = window.getComputedStyle(microphoneOFF)
+    let microphoneON = document.querySelector(".microphoneON");
+    if (computedStyle.display === "none"){
+        microphoneOFF.style.display = "flex";
+        microphoneON.style.display = "none";
+    } else {
+        microphoneOFF.style.display = "none";
+        microphoneON.style.display = "flex";
+    }
+})
+
+document.querySelector(".sounds").addEventListener("click", function(e){
+    let soundsOFF = document.querySelector(".soundsOFF");
+    const computedStyle = window.getComputedStyle(soundsOFF)
+    let soundsON = document.querySelector(".soundsON");
+    if (computedStyle.display === "none"){
+        soundsOFF.style.display = "flex";
+        soundsON.style.display = "none";
+    } else {
+        soundsOFF.style.display = "none";
+        soundsON.style.display = "flex";
+    }
+})
+
+/*---------------------------------------------------------------------*/
 //Vypne context menu pri right click na stránke
 document.addEventListener("contextmenu", (event) => {
     event.preventDefault();
@@ -240,8 +297,8 @@ document.querySelector("#familyCenterClose").addEventListener("click", function(
 })
 
 //Kliknutie na + tlačítko
-document.querySelector(".direct-messages__add-symbol").addEventListener("click", function(e){
-    console.log("add symbol")
+document.querySelector(".direct-messages__add-symbol").addEventListener("mouseenter", function(e){
+    generateSpeechBubble();
 })
 
 console.log(`Position from top: ${getPosition(".direct-messages__add-symbol").top}`);
