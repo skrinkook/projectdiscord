@@ -91,6 +91,10 @@ const generateProfileActivity = function(activityFromArray){
   }
 }
 
+const generateElementIcons = function(){
+  
+}
+
 const removeProfilesColumn2 = function(){
   let profiles = document.querySelectorAll(".column2__elementouter");
   console.log(profiles)
@@ -125,6 +129,7 @@ const generateProfilesColumn2 = function(array){
     //PFP element
     let elementPFP = document.createElement("div");
     elementPFP.classList.add("element-pfp", `epfpg${i}`);
+    elementPFP.style.backgroundColor = userProfile["icon-color"];
     document.querySelector(`.eg${i}`).appendChild(elementPFP);
 
     //Status Icon

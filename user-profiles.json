@@ -5,280 +5,320 @@
             "id": "mysticshadow091",
             "active-status": "online",
             "opened": 1,
-            "activity": "League of Legends"
+            "activity": "League of Legends",
+            "icon-color": "#FF5733"
         },
         {
             "name": "ThunderWolf",
             "id": "thunderwolf123",
             "active-status": "away",
             "opened": 0,
-            "activity": 0
+            "activity": 0,
+            "icon-color": "#66B8E3"
         },
         {
             "name": "EpicGamer",
             "id": "epicgamer007",
             "active-status": "online",
             "opened": 0,
-            "activity": "Grand Theft Auto V"
+            "activity": "Grand Theft Auto V",
+            "icon-color": "#D7A19D"
         },
         {
             "name": "NinjaCat",
             "id": "ninjacat42",
             "active-status": "online",
             "opened": 0,
-            "activity": 0
+            "activity": 0,
+            "icon-color": "#3F8D37"
         },
         {
             "name": "TechGeek",
             "id": "techgeek99",
             "active-status": "offline",
             "opened": 1,
-            "activity": "Cyberpunk"
+            "activity": "Cyberpunk",
+            "icon-color": "#C4765F"
         },
         {
             "name": "MusicLover",
             "id": "musiclover88",
             "active-status": "offline",
             "opened": 0,
-            "activity": "Spotify"
+            "activity": "Spotify",
+            "icon-color": "#A5E1A7"
         },
         {
             "name": "GamerGirl",
             "id": "gamergirl123",
             "active-status": "online",
             "opened": 1,
-            "activity": 0
+            "activity": 0,
+            "icon-color": "#F1B35F"
         },
         {
             "name": "NatureLover",
             "id": "naturelover27",
             "active-status": "online",
             "opened": 1,
-            "activity": "Minecraft"
+            "activity": "Minecraft",
+            "icon-color": "#9247E4"
         },
         {
             "name": "CodingWizard",
             "id": "codingwizard42",
             "active-status": "offline",
             "opened": 1,
-            "activity": "Grand Theft Auto V"
+            "activity": "Grand Theft Auto V",
+            "icon-color": "#7EA7D6"
         },
         {
             "name": "ArtisticSoul",
             "id": "artisticsoul11",
             "active-status": "offline",
             "opened": 1,
-            "activity": 0
+            "activity": 0,
+            "icon-color": "#D23C90"
         },
         {
             "name": "Traveler",
             "id": "traveler2023",
             "active-status": "away",
             "opened": 1,
-            "activity": "Minecraft"
+            "activity": "Minecraft",
+            "icon-color": "#FFBB2C"
         },
         {
             "name": "GadgetGuru",
             "id": "gadgetguru3",
             "active-status": "offline",
             "opened": 0,
-            "activity": "Cyberpunk"
+            "activity": "Cyberpunk",
+            "icon-color": "#6C4FEB"
         },
         {
             "name": "Bookworm",
             "id": "bookworm55",
             "active-status": "offline",
             "opened": 1,
-            "activity": 0
+            "activity": 0,
+            "icon-color": "#E564A6"
         },
         {
             "name": "SportsFanatic",
             "id": "sportsfanatic7",
             "active-status": "online",
             "opened": 1,
-            "activity": "Grand Theft Auto V"
+            "activity": "Grand Theft Auto V",
+            "icon-color": "#3D7F3B"
         },
         {
             "name": "Foodie",
             "id": "foodie123",
             "active-status": "notdisturb",
             "opened": 1,
-            "activity": 0
+            "activity": 0,
+            "icon-color": "#F44E47"
         },
         {
             "name": "MovieBuff",
             "id": "moviebuff21",
             "active-status": "offline",
             "opened": 1,
-            "activity": "Cyberpunk"
+            "activity": "Cyberpunk",
+            "icon-color": "#82A292"
         },
         {
             "name": "TechEnthusiast",
             "id": "techenthusiast9",
             "active-status": "offline",
             "opened": 1,
-            "activity": 0
+            "activity": 0,
+            "icon-color": "#B94A64"
         },
         {
             "name": "HikingAdventurer",
             "id": "hikingadventurer4",
             "active-status": "online",
             "opened": 1,
-            "activity": "Minecraft"
+            "activity": "Minecraft",
+            "icon-color": "#3378D9"
         },
         {
             "name": "ChessMaster",
             "id": "chessmaster87",
             "active-status": "online",
             "opened": 1,
-            "activity": "Grand Theft Auto V"
+            "activity": "Grand Theft Auto V",
+            "icon-color": "#E17640"
         },
         {
             "name": "NatureExplorer",
             "id": "natureexplorer22",
             "active-status": "online",
             "opened": 1,
-            "activity": 0
+            "activity": 0,
+            "icon-color": "#9A8835"
         },
         {
             "name": "FitnessJackie",
             "id": "fitnessjackie16",
             "active-status": "online",
             "opened": 1,
-            "activity": "Spotify"
+            "activity": "Spotify",
+            "icon-color": "#000"
         },
         {
             "name": "SoccerFan",
             "id": "soccerfan8",
             "active-status": "away",
             "opened": 0,
-            "activity": 0
+            "activity": 0,
+            "icon-color": "#53CAB9"
         },
         {
             "name": "TechSavvy",
             "id": "techsavvy99",
             "active-status": "offline",
             "opened": 1,
-            "activity": "Cyberpunk"
+            "activity": "Cyberpunk",
+            "icon-color": "#AB5B84"
         },
         {
             "name": "CookingEnthusiast",
             "id": "cookingenthusiast6",
             "active-status": "offline",
             "opened": 1,
-            "activity": "Minecraft"
+            "activity": "Minecraft",
+            "icon-color": "#68D33A"
         },
         {
             "name": "SpaceGeek",
             "id": "spacegeek2023",
             "active-status": "offline",
             "opened": 1,
-            "activity": "Grand Theft Auto V"
+            "activity": "Grand Theft Auto V",
+            "icon-color": "#E64084"
         },
         {
             "name": "PetLover",
             "id": "petlover123",
             "active-status": "offline",
             "opened": 1,
-            "activity": 0
+            "activity": 0,
+            "icon-color": "#5D94ED"
         },
         {
             "name": "TechNerd",
             "id": "technerd77",
             "active-status": "online",
             "opened": 1,
-            "activity": 0
+            "activity": 0,
+            "icon-color": "#ACAC55"
         },
         {
             "name": "ArtFanatic",
             "id": "artfanatic55",
             "active-status": "offline",
             "opened": 1,
-            "activity": "Minecraft"
+            "activity": "Minecraft",
+            "icon-color": "#E34E97"
         },
         {
             "name": "CoffeeLover",
             "id": "coffeelover88",
             "active-status": "offline",
             "opened": 1,
-            "activity": "Cyberpunk"
+            "activity": "Cyberpunk",
+            "icon-color": "#7FCD7B"
         },
         {
             "name": "YogaEnthusiast",
             "id": "yogaenthusiast3",
             "active-status": "offline",
             "opened": 1,
-            "activity": 0
+            "activity": 0,
+            "icon-color": "#C7738A"
         },
         {
             "name": "TravelBlogger",
             "id": "travelblogger22",
             "active-status": "notdisturb",
             "opened": 1,
-            "activity": "Spotify"
+            "activity": "Spotify",
+            "icon-color": "#4C7C96"
         },
         {
             "name": "GamerDude",
             "id": "gamerdude77",
             "active-status": "offline",
             "opened": 1,
-            "activity": "League of Legends"
+            "activity": "League of Legends",
+            "icon-color": "#A54E5E"
         },
         {
             "name": "NaturePhotographer",
             "id": "naturephotographer8",
             "active-status": "offline",
             "opened": 1,
-            "activity": 0
+            "activity": 0,
+            "icon-color": "#6299A1"
         },
         {
             "name": "FoodExplorer",
             "id": "foodexplorer123",
             "active-status": "away",
             "opened": 1,
-            "activity": "Minecraft"
+            "activity": "Minecraft",
+            "icon-color": "#E57D56"
         },
         {
             "name": "CodingPro",
             "id": "codingpro4",
             "active-status": "offline",
             "opened": 1,
-            "activity": 0
+            "activity": 0,
+            "icon-color": "#9D9539"
         },
         {
             "name": "MusicAddict",
             "id": "musicaddict99",
             "active-status": "offline",
             "opened": 1,
-            "activity": "Spotify"
+            "activity": "Spotify",
+            "icon-color": "#5B4E68"
         },
         {
             "name": "FitnessFreak",
             "id": "fitnessfreak16",
             "active-status": "offline",
             "opened": 1,
-            "activity": "Cyberpunk"
+            "activity": "Cyberpunk",
+            "icon-color": "#D36275"
         },
         {
             "name": "MovieLover",
             "id": "movielover21",
             "active-status": "offline",
             "opened": 1,
-            "activity": "Grand Theft Auto V"
+            "activity": "Grand Theft Auto V",
+            "icon-color": "#4BACE9"
         },
         {
             "name": "TechGuru",
             "id": "techguru9",
             "active-status": "online",
             "opened": 0,
-            "activity": 0
+            "activity": 0,
+            "icon-color": "#7F6E6A"
         },
         {
             "name": "AnimalLover",
             "id": "animallover4",
             "active-status": "offline",
             "opened": 1,
-            "activity": 0
+            "activity": 0,
+            "icon-color": "#E1BB5A"
         }
     ]
 }

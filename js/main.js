@@ -138,9 +138,7 @@ fetchJsonData().then(users => {
         let elementPfp = document.createElement("div");
         elementPfp.classList.add("element-pfp");
         elementPfp.classList.add(`pfpGen${i + 1}`);
-        //Vygeneroanie random farby || Zrejme to zmením lebo po každom refresh je to ine, alebo ulozit do local storage
-        const randomColor = '#' + Math.random().toString(16).substr(2, 6);
-        elementPfp.style.backgroundColor = randomColor;
+        elementPfp.style.backgroundColor = openedProfiles[i]["icon-color"];
         document.querySelector(`.columnElementGen${i + 1}`).appendChild(elementPfp);
 
         //Pokiaľ je užívateľ online

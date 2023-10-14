@@ -772,12 +772,24 @@ div::-webkit-scrollbar {
     border-radius: 50%;
     background-color: var(--BGCOLOR-HEADER-CONTAINER-DARKER);
     margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .column2__elementouter:hover .message-icon-c2, 
 .column2__elementouter:hover .options-icon-c2 {
     background-color: var(--BGCOLOR-SCROLLER-GUILDS);
 }
-    
+span.material-symbols-outlined {
+    transform: scale(0.8);
+}
+.message-icon-c2:hover span.material-symbols-outlined,
+.options-icon-c2:hover span.material-symbols-outlined {
+    color: var(--FONTCOLOR-MENU-HOVER);
+}
+
+
+
 
 
 
