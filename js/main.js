@@ -217,23 +217,24 @@ fetchJsonData().then(users => {
             removeElement.remove();
             console.log(openedProfiles);
         })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
+
+    const onlineTab = userProfiles.filter(user => user["active-status"] !== "offline");
+    onlineTab.sort((a, b) => a.name.localeCompare(b.name));
+    console.log(onlineTab);
+
+    generateProfilesColumn2(onlineTab);
+    
+
+
+
+
+
+
+
+
+
+
 
   });
 

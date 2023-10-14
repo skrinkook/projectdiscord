@@ -94,7 +94,7 @@
         {
             "name": "SportsFanatic",
             "id": "sportsfanatic7",
-            "active-status": "offline",
+            "active-status": "online",
             "opened": 1,
             "activity": "Grand Theft Auto V"
         },
@@ -122,7 +122,7 @@
         {
             "name": "HikingAdventurer",
             "id": "hikingadventurer4",
-            "active-status": "offline",
+            "active-status": "online",
             "opened": 1,
             "activity": "Minecraft"
         },
@@ -136,7 +136,7 @@
         {
             "name": "NatureExplorer",
             "id": "natureexplorer22",
-            "active-status": "offline",
+            "active-status": "online",
             "opened": 1,
             "activity": 0
         },

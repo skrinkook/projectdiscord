@@ -715,6 +715,9 @@ div::-webkit-scrollbar {
     border-radius: 8px;
     height: 61px;
 }
+.column2__elementouter:last-child {
+    margin-bottom: 15px;
+}
 .column2__element {
     width: 100%;
     height: 100%;
@@ -724,10 +727,15 @@ div::-webkit-scrollbar {
     align-items: center;
 
 }
+.column2__element .element-pfp{
+    margin-bottom: 7px;
+}
 .column2__elementouter:hover,
 .column2__elementouter:focus {
     background-color: var(--BGCOLOR-MESSAGE-ELEMENT-ACTIVE);
 }
+
+    
 
 
 
