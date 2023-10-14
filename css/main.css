@@ -725,7 +725,7 @@ div::-webkit-scrollbar {
     cursor: pointer;
     display: flex;
     align-items: center;
-
+    position: relative;
 }
 .column2__element .element-pfp{
     margin-bottom: 7px;
@@ -735,6 +735,48 @@ div::-webkit-scrollbar {
     background-color: var(--BGCOLOR-MESSAGE-ELEMENT-ACTIVE);
 }
 
+.column2_element-text {
+    margin-left: 15px;
+    margin-bottom: 3px;
+    color: var(--FONTCOLOR-MENU-HOVER);
+    font-family: var(--FONT-SEMIBOLD);
+    line-height: 1.2;
+}
+.c2-text-span {
+    margin-left: 5px;
+    font-family: var(--FONT-SEMIBOLD);
+    font-size: 12px;
+    color: var(--FONTCOLOR-MENU);
+    display: none;
+}
+.column2__elementouter:hover .c2-text-span {
+    display: inline-block;
+  }
+  
+.c2-text-span-under {
+    font-family: var(--FONT-MEDIUM);
+    font-size: 14px;
+    color: var(--FONTCOLOR-MENU)
+}
+
+.c2-icons {
+    position: absolute;
+    display: flex;
+    right: 0;
+}
+
+.message-icon-c2,
+.options-icon-c2 {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--BGCOLOR-HEADER-CONTAINER-DARKER);
+    margin-right: 10px;
+}
+.column2__elementouter:hover .message-icon-c2, 
+.column2__elementouter:hover .options-icon-c2 {
+    background-color: var(--BGCOLOR-SCROLLER-GUILDS);
+}
     
 
 

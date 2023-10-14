@@ -68,6 +68,29 @@ function getPosition(selector) {
 }
 */
 
+const generateProfileActivity = function(activityFromArray){
+  if (activityFromArray.activity === 0) {
+    if (activityFromArray["active-status"] === "online"){
+        return "Online";
+    } else if (activityFromArray["active-status"] === "notdisturb"){
+        return "Not Disturb";
+    } else if (activityFromArray["active-status"] === "away"){
+      return "Idle";
+    } else if (activityFromArray["active-status"] === "offline"){
+      return "Offline";
+    }
+
+  } else {
+    if (activityFromArray.activity !== "Spotify") {
+      let result = "Playing " + activityFromArray.activity;
+      return result;
+    } else {
+      let result = "Listening to " + activityFromArray.activity;
+      return result;
+    }
+  }
+}
+
 const removeProfilesColumn2 = function(){
   let profiles = document.querySelectorAll(".column2__elementouter");
   console.log(profiles)
@@ -105,8 +128,7 @@ const generateProfilesColumn2 = function(array){
     document.querySelector(`.eg${i}`).appendChild(elementPFP);
 
     //Status Icon
-    let c = i
-    console.log(userProfile["active-status"]);
+    let c = i; 
     //V prípade že používateľ je online
     if (userProfile["active-status"] === "online"){
       let greencircle = document.createElement("div");
@@ -141,6 +163,11 @@ const generateProfilesColumn2 = function(array){
       document.querySelector(`.offcg${c}`).appendChild(offlineSubCircle);
     }
     
+    //Display Name, ID
+    let displayName = document.createElement("h2");
+    displayName.classList.add("column2_element-text", `dng${i}`);
+    displayName.innerHTML = `${userProfile.name} <span class="c2-text-span">#${userProfile.id}</span><br><span class="c2-text-span-under">${generateProfileActivity(userProfile)}</span>`
+    document.querySelector(`.eg${i}`).appendChild(displayName);
 
 
   })
