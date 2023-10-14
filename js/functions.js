@@ -91,8 +91,36 @@ const generateProfileActivity = function(activityFromArray){
   }
 }
 
-const generateElementIcons = function(){
-  
+const generateElementIcons = function(count, oneUser){
+  let iconContainer = document.createElement("div");
+  iconContainer.classList.add("c2-icons", `c2i${count}`);
+  document.querySelector(`.eg${count}`).appendChild(iconContainer);
+
+  //Message Icon HTML Structure
+  let messageIcon = document.createElement("div");
+  messageIcon.classList.add("message-icon-c2", `mic2-${count}`);
+  document.querySelector(`.c2i${count}`).appendChild(messageIcon);
+  let messageIconSpan = document.createElement("span");
+  messageIconSpan.classList.add("material-symbols-outlined");
+  messageIconSpan.textContent = "chat";
+  document.querySelector(`.mic2-${count}`).appendChild(messageIconSpan);
+
+  //Options Icon HTML Structure
+  let optionsIcon = document.createElement("div");
+  optionsIcon.classList.add("options-icon-c2", `oic2-${count}`);
+  document.querySelector(`.c2i${count}`).appendChild(optionsIcon);
+  let optionsIconSpan = document.createElement("span");
+  optionsIconSpan.classList.add("material-symbols-outlined");
+  optionsIconSpan.textContent = "more_vert";
+  document.querySelector(`.oic2-${count}`).appendChild(optionsIconSpan);
+
+  //Click Eventy
+  messageIcon.addEventListener("click", function(e){
+    console.log("DM user: " + oneUser.name);
+  })
+  optionsIconSpan.addEventListener("click", function(e){
+    console.log("More options... " + oneUser.name)
+  })
 }
 
 const removeProfilesColumn2 = function(){
@@ -116,7 +144,7 @@ const generateProfilesColumn2 = function(array){
     let elementSection = document.querySelector(".column2__elementsection");
     let outerElement = document.createElement("div");
     outerElement.addEventListener("click", function(e){
-      console.log("I'm " + userProfile.name)
+      //console.log("I'm " + userProfile.name)
     })
     outerElement.classList.add("column2__elementouter", `oeg${i}`)
     elementSection.appendChild(outerElement);
@@ -174,6 +202,6 @@ const generateProfilesColumn2 = function(array){
     displayName.innerHTML = `${userProfile.name} <span class="c2-text-span">#${userProfile.id}</span><br><span class="c2-text-span-under">${generateProfileActivity(userProfile)}</span>`
     document.querySelector(`.eg${i}`).appendChild(displayName);
 
-
+    generateElementIcons(i, userProfile);
   })
 }
