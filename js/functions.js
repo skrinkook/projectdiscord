@@ -124,7 +124,6 @@ const generateElementIcons = function(count, oneUser){
 //Removes all profiles displayed in column2
 const removeProfilesColumn2 = function(){
   let profiles = document.querySelectorAll(".column2__elementouter");
-  console.log(profiles)
   profiles.forEach((profile) => {
     profile.remove();
   })

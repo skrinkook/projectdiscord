@@ -222,8 +222,14 @@ fetchJsonData().then(users => {
     console.log(onlineTab);
 
     generateProfilesColumn2(onlineTab);
-    
 
+    currentTabNames = onlineTab;
+
+    document.querySelector(".inputsearch__input").addEventListener("input", function(e) {
+        removeProfilesColumn2();
+        const filteredUsers = currentTabNames.filter(user => user.name.toLowerCase().includes((e.target.value).toLowerCase()));
+        generateProfilesColumn2(filteredUsers);
+    });
 
 
 
