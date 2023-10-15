@@ -1,18 +1,18 @@
 @font-face {
 font-family: 'Sans-GG-Bold';
-    src: url('/fonts/gg-sans-2-cufonfonts/gg\ sans\ Bold.ttf') format('woff2');
+    src: url('../fonts/gg-sans-2-cufonfonts/ggsansBold.ttf') format('woff2');
   }
 @font-face {
 font-family: 'Sans-GG-Medium';
-    src: url('/fonts/gg-sans-2-cufonfonts/gg\ sans\ Medium.ttf') format('woff2');
+    src: url('../fonts/gg-sans-2-cufonfonts/ggsansMedium.ttf') format('woff2');
   }
 @font-face {
 font-family: 'Sans-GG-Regular';
-    src: url('/fonts/gg-sans-2-cufonfonts/gg\ sans\ Regular.ttf') format('woff2');
+    src: url('../fonts/gg-sans-2-cufonfonts/ggsansRegular.ttf') format('woff2');
     }
 @font-face {
 font-family: 'Sans-GG-Semibold';
-        src: url('/fonts/gg-sans-2-cufonfonts/gg\ sans\ Semibold.ttf') format('woff2');
+        src: url('../fonts/gg-sans-2-cufonfonts/ggsansSemibold.ttf') format('woff2');
         }
 
 
@@ -88,7 +88,7 @@ h2 {
 .main-container {
     display: flex;
     flex-direction: row;
-    background-color: gray;
+    background-color: #808080FF;
     width: 100vw;
     height: 100vh;
 }
@@ -113,8 +113,7 @@ div::-webkit-scrollbar {
 .scroller-server {
     width: 100%;
     height: 48px;
-    margin: 0 auto;
-    margin-top: 8px;
+    margin: 8px auto 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -124,7 +123,7 @@ div::-webkit-scrollbar {
 .scroller-server:first-child {
     margin-top: 12px;
     border-radius: 30%;
-    width: 48;
+    /* width: 48px; */
     position: relative;
 }
 
@@ -206,7 +205,7 @@ div::-webkit-scrollbar {
 
 .icon-status__active {
     position: absolute;
-    width: 20px; /*Pre 3-ciferné číslo bude hodnota 30px*/
+    width: 20px; /*For 3-digits number value will be 30px*/
     height: 20px;
     background-color: var(--BGCOLOR-NOTIFICATION-PILL);
     border-radius: 10px;
@@ -242,8 +241,8 @@ div::-webkit-scrollbar {
 /* Works fine with 0.3s ease-in-out */
 @keyframes pillAnimationAppear {
     0% {
-        height: 0px;
-        width: 0px;
+        height: 0;
+        width: 0;
     }
     100% {
         height: 28px;
@@ -261,11 +260,8 @@ div::-webkit-scrollbar {
     width: 32px;
     height: 2px;
     background-color: var(--BGCOLOR-HEADER-CONTAINER-LIGHT);
-    margin: 0 auto;
-    margin-top: 8px;
+    margin: 8px auto 0;
 }
-
-
 
 .right-container {
     width: 100%;

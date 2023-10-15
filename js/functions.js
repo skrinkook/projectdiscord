@@ -17,7 +17,7 @@ function fetchJsonData() {
         });
 }
 
-//Vygeneruje Red pill a príslušné číslo podľa json file a priradí classes
+//This will generate red pill (+classes) with number of notifications for the guilds scroller on the left
 const generateRedPillAndNumber = function(i, notificationsNumber){
     let displayRedBox = document.createElement("div");
     displayRedBox.classList.add("icon-status__active");
@@ -30,15 +30,14 @@ const generateRedPillAndNumber = function(i, notificationsNumber){
     document.querySelector(`.genRedBox${i + 1}`).appendChild(displayNumber);
 }
 
-//Získanie pozície elementu, vzhľadom na veľkosť dokumentu
+//Get position of the element on the webpage
 function getPosition(selector) {
     let element = document.querySelector(selector);
     let rect = element.getBoundingClientRect();
-    let position = {
+  return {
       top: rect.top + window.scrollY,
       left: rect.left + window.scrollX,
     };
-    return position;
   }
 
 
@@ -82,15 +81,14 @@ const generateProfileActivity = function(activityFromArray){
 
   } else {
     if (activityFromArray.activity !== "Spotify") {
-      let result = "Playing " + activityFromArray.activity;
-      return result;
+      return "Playing " + activityFromArray.activity;
     } else {
-      let result = "Listening to " + activityFromArray.activity;
-      return result;
+      return "Listening to " + activityFromArray.activity;
     }
   }
 }
 
+//Generates message and options icons, for the column2
 const generateElementIcons = function(count, oneUser){
   let iconContainer = document.createElement("div");
   iconContainer.classList.add("c2-icons", `c2i${count}`);
@@ -114,15 +112,16 @@ const generateElementIcons = function(count, oneUser){
   optionsIconSpan.textContent = "more_vert";
   document.querySelector(`.oic2-${count}`).appendChild(optionsIconSpan);
 
-  //Click Eventy
-  messageIcon.addEventListener("click", function(e){
+  //Events on click event
+  messageIcon.addEventListener("click", function(){
     console.log("DM user: " + oneUser.name);
   })
-  optionsIconSpan.addEventListener("click", function(e){
+  optionsIconSpan.addEventListener("click", function(){
     console.log("More options... " + oneUser.name)
   })
 }
 
+//Removes all profiles displayed in column2
 const removeProfilesColumn2 = function(){
   let profiles = document.querySelectorAll(".column2__elementouter");
   console.log(profiles)
