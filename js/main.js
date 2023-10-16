@@ -61,7 +61,7 @@ for (let i = 0; i < numberOfServerIcons; i++){
         speechBubble.remove();
         console.log(`Odišiel si s myškou z buttonu ${i + 1}`)
     })
-
+    
     //Nastaví obrázok pre daný server
     fetchServersData("servers.json").then(servers => {
         circle.style.backgroundImage = `url(.${servers[i].icon})`

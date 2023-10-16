@@ -10,7 +10,7 @@
             "id": 1
         }, {
             "name": "League of Legends",
-            "icon": "/icons/League_of_Legends_Emblem.ico",
+            "icon": "/icons/League_Of_Legends_Emblem.ico",
             "notifications": 2,
             "pill": 1,
             "verified": "verified",
