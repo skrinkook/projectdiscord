@@ -34,7 +34,7 @@
             "id": 4
         }, {
             "name": "BLACKPINK",
-            "icon": "/icons/BLACKPINK_Emblem.ico",
+            "icon": "/icons/BLACKPINKEmblem.ico",
             "notifications": 1,
             "pill": 1,
             "verified": "community",
