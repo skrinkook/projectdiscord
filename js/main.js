@@ -254,7 +254,7 @@ const myProfile = [
 ]
 
 let myPFP = document.querySelector("#myPFP");
-myPFP.style.backgroundImage = `url(..${myProfile[0].icon})`;
+myPFP.style.backgroundImage = `url(./${myProfile[0].icon})`;
 
 let myElementText = document.querySelector("#myElementText");
 myElementText.style.marginLeft = "8px";
