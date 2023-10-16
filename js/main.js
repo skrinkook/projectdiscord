@@ -64,7 +64,7 @@ for (let i = 0; i < numberOfServerIcons; i++){
 
     //Nastaví obrázok pre daný server
     fetchServersData("servers.json").then(servers => {
-        circle.style.backgroundImage = `url(..${servers[i].icon})`
+        circle.style.backgroundImage = `url(.${servers[i].icon})`
       });
     document.querySelector(`.gen${i + 1}`).appendChild(circle);
     
