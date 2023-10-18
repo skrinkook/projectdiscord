@@ -61,7 +61,7 @@ for (let i = 0; i < numberOfServerIcons; i++){
         speechBubble.remove();
         console.log(`Odišiel si s myškou z buttonu ${i + 1}`)
     })
-    
+
     //Nastaví obrázok pre daný server
     fetchServersData("servers.json").then(servers => {
         circle.style.backgroundImage = `url(.${servers[i].icon})`
@@ -217,9 +217,38 @@ fetchJsonData().then(users => {
         })
     }
 
+    //Vyfiltruje zo všetkých užívateľov iba tých, ktorí nie sú offline
     const onlineTab = userProfiles.filter(user => user["active-status"] !== "offline");
     onlineTab.sort((a, b) => a.name.localeCompare(b.name));
     console.log(onlineTab);
+    
+    const functionArray = ["clickHandlerOnline", "clickHandlerAll", "clickHandlerPending", "Blocked"]
+    
+    
+    function clickHandlerAll() {
+        console.log("ahoj");
+        let selectedElement = document.querySelector(".headerselected");
+        selectedElement.classList.remove("headerselected");
+        let allElement = document.querySelector("#allHeaderContainer");
+        allElement.classList.add("headerselected");
+
+
+        let tabs = document.querySelectorAll(".afterSep");
+        for (let i = 0; i < tabs.length; i++) {
+            if (i !== 1) {
+              tabs[i].addEventListener("click", function() {
+                console.log(functionArray[i]);
+              });
+            }
+          }
+
+        // Remove the event listener after the first click
+        document.querySelector("#allHeaderContainer").removeEventListener("click", clickHandlerAll);
+
+    }
+    
+    
+    document.querySelector("#allHeaderContainer").addEventListener("click", clickHandlerAll);
 
     generateProfilesColumn2(onlineTab);
 
@@ -229,8 +258,33 @@ fetchJsonData().then(users => {
         removeProfilesColumn2();
         const filteredUsers = currentTabNames.filter(user => user.name.toLowerCase().includes((e.target.value).toLowerCase()));
         generateProfilesColumn2(filteredUsers);
+
+        //Animácia ikonky
+        let magnifyingGlass = document.querySelector("#magnifyingGlass");
+        let closeIcon = document.querySelector("#InputColumn2CloseIcon");
+
+        if (e.target.value === ""){
+            magnifyingGlass.style.display = "block";
+            closeIcon.style.display = "none";
+            
+        } else {
+            magnifyingGlass.style.display = "none";
+            closeIcon.style.display = "block";
+
+        } 
     });
 
+    //Close Button Event
+    document.querySelector("#InputColumn2CloseIcon").addEventListener("click", function(){
+        let input = document.querySelector(".inputsearch__input");
+        input.value = "";
+        let closeIcon = document.querySelector("#InputColumn2CloseIcon");
+        closeIcon.style.display = "none";
+        let magnifyingGlass = document.querySelector("#magnifyingGlass");
+        magnifyingGlass.style.display = "block";
+        removeProfilesColumn2();
+        generateProfilesColumn2(currentTabNames);
+    })
 
 
 

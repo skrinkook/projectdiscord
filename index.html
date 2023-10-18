@@ -30,9 +30,30 @@
                 </div>
                 <div class="buttons-side">
                     <div class="buttons-side__left">
-                        <div class="friendsHeaderContainer">
-                            
+
+                        <div class="friendsHeaderContainer headerContainer">
+                            <div class="iconFriends"></div>
+                            <h2 class="header__friends">Friends</h2>
                         </div>
+
+                        <div class="headerSeparator"></div>
+
+                        <div class="headerContainer afterSep headerselected" id="onlineHeaderContainer">
+                            <h2 class="header__online">Online</h2>
+                        </div>
+                        <div class="headerContainer afterSep" id="allHeaderContainer">
+                            <h2 class="header__all">All</h2>
+                        </div>
+                        <div class="headerContainer afterSep" id="pendingHeaderContainer">
+                            <h2 class="header__pending">Pending</h2>
+                        </div>
+                        <div class="headerContainer afterSep" id="blockedHeaderContainer">
+                            <h2 class="header__blocked">Blocked</h2>
+                        </div>
+                        <div class="headerContainer" id="addFriendHeaderContainer">
+                            <h2 class="header__addFriend">Add Friend</h2>
+                        </div>
+
                     </div>
                     <div class="buttons-side__right"></div>
                 </div>
@@ -104,7 +125,9 @@
                     <div class="column2__inputsection">
                         <div class="inputsearch">
                             <input class="inputsearch__input" type="text" placeholder="Search" name="secondColumnInput">
-                            <div class="input-icon-part"></div>
+                            <div class="input-icon-part"><span class="material-symbols-outlined" id="magnifyingGlass">
+                                search
+                                </span><span class="material-symbols-outlined" id="InputColumn2CloseIcon">close</span></div>
                         </div>
                     </div>
                     <div class="online-title">
@@ -127,6 +150,6 @@
             </div>
         </div>
     </div>
-    
+    <footer class="jackie🦶"></footer>
 </body>
 </html>

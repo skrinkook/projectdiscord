@@ -39,6 +39,12 @@ font-family: 'Sans-GG-Semibold';
     --COLOR-ACTIVITY-AWAY: rgb(236, 175, 64);
     --COLOR-ACTIVITY-NOTDISTURB: rgb(238, 64, 71);
 
+    /* HEADER COLORS */
+    --COLOR-HEADER-HOVER: rgb(67, 68, 75, 0.5);
+    --COLOR-HEADER-ACTIVE: rgb(67, 68, 75, 0.8);
+    --COLOR-HEADER-SELECTED: rgb(67, 68, 75, 1);
+
+
     /* || OTHER COLORS */
     --COLOR-HEADER-BORDER-BOTTOM: hsl(0, 0%, 0%, 0.2);
 
@@ -318,10 +324,11 @@ div::-webkit-scrollbar {
 }
 
 .buttons-side__left {
-    width: 400px;
+    width: 600px;
     height: 100%;
-    background-color: blue;
-    display: none;
+    display: flex;
+    align-items: center;
+    padding-left: 7px;
 }
 
 .buttons-side__right {
@@ -330,8 +337,84 @@ div::-webkit-scrollbar {
     background-color: red;
     position: absolute;
     right: 0;
-    display: none;
+    display: block;
 }
+
+#InputColumn2CloseIcon {
+    display: none;
+    cursor: pointer;
+}
+
+.friendsHeaderContainer {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+}
+
+.iconFriends {
+    background-color: var(--FONTCOLOR-MENU);
+    width: 24px;
+    height: 24px;
+    border: 1px solid red;
+}
+
+.header__friends {
+    color: var(--FONTCOLOR-MENU-HOVER);
+    font-family: var(--FONT-BOLD);
+    margin-left: 8px;
+}
+.headerContainer {
+    margin-left: 8px;
+    font-family: var(--FONT-BOLD);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.headerSeparator {
+    height: 24px;
+    background-color: var(--FONTCOLOR-MENU);
+    opacity: 0.2;
+    width: 1px;
+    margin-left: 8px;
+}
+
+.afterSep {
+    padding: 2px 8px 2px 8px;
+    margin: 0 8px 0 8px;
+}
+
+.afterSep:hover:not(:last-child),
+.afterSep:focus:not(:last-child) {
+    background-color: var(--COLOR-HEADER-HOVER);
+    color: rgb(217, 217, 217);
+}
+.afterSep:active:not(:last-child) {
+    background-color: var(--COLOR-HEADER-ACTIVE);
+}
+
+
+
+.headerselected {
+    background-color: var(--COLOR-HEADER-SELECTED);
+    color: rgb(217, 217, 217);
+    cursor: default;
+}
+.headerselected:hover {
+    background-color: var(--COLOR-HEADER-ACTIVE);
+}
+
+#addFriendHeaderContainer {
+    background-color: rgb(36, 128, 70);
+    padding: 2px 8px 2px 8px;
+    margin: 0 8px 0 8px;
+}
+h2.header__addFriend {
+    color: white;
+}
+
+
+
+
 
 
 
@@ -351,7 +434,7 @@ div::-webkit-scrollbar {
 .main-content {
     width: 100%;
     height: calc(100vh - var(--HEADER-HEIGHT));
-    background-color: orange;
+    background-color: var(--BGCOLOR-HEADER-CONTAINER-LIGHT);
     display: flex;
     flex-direction: row;
 }
@@ -691,7 +774,16 @@ div::-webkit-scrollbar {
     position: absolute;
     right: 0;
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: text;
 }
+#magnifyingGlass,
+#InputColumn2CloseIcon {
+    transform: scale(1);
+}
+
 .inputsearch__input {
     background-color: var(--BGCOLOR-SCROLLER-GUILDS);
     border: none;
@@ -788,28 +880,6 @@ span.material-symbols-outlined {
 .options-icon-c2:hover span.material-symbols-outlined {
     color: var(--FONTCOLOR-MENU-HOVER);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .online-title__h3 {
     text-transform: uppercase;

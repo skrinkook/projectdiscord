@@ -1,4 +1,5 @@
-//Slúži na získanie údajov z servers.json file
+//Musel som preložiť komentáre do angličtiny, pretože moje IDE ma zjebávalo zakaždým keď to bolo po slovensky... 
+//Used to gets data from json file
 function fetchServersData() {
     return fetch('servers.json')
       .then(response => response.json())
