@@ -224,9 +224,10 @@ fetchJsonData().then(users => {
     
     const functionArray = ["clickHandlerOnline", "clickHandlerAll", "clickHandlerPending", "Blocked"]
     
-    
+
+    //Táto kktina na filtrovanie funguje ako chce ..... treba upraviť
     function clickHandlerAll() {
-        console.log("ahoj");
+        console.log("test");
         let selectedElement = document.querySelector(".headerselected");
         selectedElement.classList.remove("headerselected");
         let allElement = document.querySelector("#allHeaderContainer");
