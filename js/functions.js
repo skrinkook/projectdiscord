@@ -41,33 +41,6 @@ function getPosition(selector) {
     };
   }
 
-
-/*const generateSpeechBubble = function(){
-    //Hlavný div
-    let bodyElement = document.body;
-    let speechBubble = document.createElement("div");
-    speechBubble.classList.add("speech-bubble");
-    speechBubble.style.animation = "increaseSize 0.15s forwards";
-    bodyElement.appendChild(speechBubble);
-
-    let rectangle = document.createElement("div");
-    rectangle.classList.add("rectangle");
-    speechBubble.appendChild(rectangle);
-
-    let triangle = document.createElement("div");
-    triangle.classList.add("triangle");
-    speechBubble.appendChild(triangle);
-
-    let p = document.createElement("p");
-    p.classList.add("speech-bubble__text")
-    p.innerHTML = "Create DM";
-    rectangle.appendChild(p);
-
-
-    speechBubble.style.top = "200px";
-}
-*/
-
 const generateProfileActivity = function(activityFromArray){
   if (activityFromArray.activity === 0 && activityFromArray["active-status"] !== "offline" && activityFromArray.flag !== "blocked" && activityFromArray.flag !== "pending") {
     if (activityFromArray["active-status"] === "online"){

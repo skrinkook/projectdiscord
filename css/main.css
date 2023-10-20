@@ -332,18 +332,64 @@ div::-webkit-scrollbar {
 }
 
 .buttons-side__right {
-    width: 80px;
+    width: 180px;
     height: 100%;
-    background-color: red;
     position: absolute;
     right: 0;
-    display: block;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.rightSideIcons {
+    width: 24px;
+    height: 24px;
+    margin: 0 8px 0 8px;
+    cursor: pointer;
+}
+.rightSideIcons:first-child {
+    margin-right: 16px;
+}
+
+.buttons-side__right__icon-help {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.helpcircle {
+    width: 20px;
+    height: 20px;
+    background-color: var(--FONTCOLOR-MENU);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#questionMarkIcon {
+    color: var(--BGCOLOR-HEADER-CONTAINER-LIGHT);
+    transform: scale(0.7);
+}
+#inboxIcon {
+    transform: scale(0.9);
+}
+#newGroupDMIcon {
+    transform: scale(0.9);
+}
+
+#rightHeaderSeparator {
+    margin: 0 8px 0 8px;
+    background-color: var(--FONTCOLOR-MENU);
+    opacity: 0.2;
+    width: 1px;
+    height: 24px;
 }
 
 #InputColumn2CloseIcon {
     display: none;
     cursor: pointer;
 }
+
 
 .friendsHeaderContainer {
     display: flex;
@@ -352,10 +398,12 @@ div::-webkit-scrollbar {
 }
 
 .iconFriends {
-    background-color: var(--FONTCOLOR-MENU);
-    width: 24px;
-    height: 24px;
-    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 26px;
+    height: 26px;
+
 }
 
 .header__friends {
