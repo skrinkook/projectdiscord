@@ -69,24 +69,31 @@ function getPosition(selector) {
 */
 
 const generateProfileActivity = function(activityFromArray){
-  if (activityFromArray.activity === 0) {
+  if (activityFromArray.activity === 0 && activityFromArray["active-status"] !== "offline" && activityFromArray.flag !== "blocked" && activityFromArray.flag !== "pending") {
     if (activityFromArray["active-status"] === "online"){
         return "Online";
     } else if (activityFromArray["active-status"] === "notdisturb"){
         return "Not Disturb";
     } else if (activityFromArray["active-status"] === "away"){
       return "Idle";
-    } else if (activityFromArray["active-status"] === "offline"){
-      return "Offline";
-    }
-
+    } 
   } else {
-    if (activityFromArray.activity !== "Spotify") {
+    if (activityFromArray.activity !== "Spotify" && activityFromArray["active-status"] !== "offline" && activityFromArray.flag !== "blocked" && activityFromArray.flag !== "pending") {
       return "Playing " + activityFromArray.activity;
-    } else {
+    } else if (activityFromArray["active-status"] !== "offline" && activityFromArray.flag !== "blocked" && activityFromArray.flag !== "pending"){
       return "Listening to " + activityFromArray.activity;
     }
   }
+  if(activityFromArray["active-status"] === "offline" && activityFromArray.flag !== "blocked" && activityFromArray.flag !== "pending"){
+    return "Offline"
+  }
+  if(activityFromArray["flag"] === "pending"){
+    return "Outgoing friend request";
+  }
+  if (activityFromArray["flag"] === "blocked"){
+    return "Blocked";
+  }
+  
 }
 
 //Generates message and options icons, for the column2
@@ -138,6 +145,7 @@ const generateProfilesColumn2 = function(array){
   //span.textContent = array.length;
 
   array.forEach((userProfile) => {
+
     i++
     //Outer Element
     let elementSection = document.querySelector(".column2__elementsection");
@@ -162,13 +170,13 @@ const generateProfilesColumn2 = function(array){
     //Status Icon
     let c = i; 
     //V prípade že používateľ je online
-    if (userProfile["active-status"] === "online"){
+    if (userProfile["active-status"] === "online" && userProfile.flag !== "blocked" && userProfile.flag !== "pending"){
       let greencircle = document.createElement("div");
       greencircle.classList.add("online-circle", `ocg${c}`);
       greencircle.style.border = "3px solid rgb(45, 48, 53)";
       document.querySelector(`.epfpg${i}`).appendChild(greencircle);
     //V prípade že je používateľ away
-    } else if (userProfile["active-status"] === "away"){
+    } else if (userProfile["active-status"] === "away" && userProfile.flag !== "blocked" && userProfile.flag !== "pending"){
       let awayCircle = document.createElement("div");
       let awaySubCircle = document.createElement("div");
       awayCircle.classList.add("away-circle", `acg${c}`);
@@ -178,7 +186,7 @@ const generateProfilesColumn2 = function(array){
       awaySubCircle.style.backgroundColor = "rgb(45, 48, 53)"
       document.querySelector(`.acg${c}`).appendChild(awaySubCircle);
     //V prípade že je používateľ not Disturb
-    } else if (userProfile["active-status"] === "notdisturb"){
+    } else if (userProfile["active-status"] === "notdisturb" && userProfile.flag !== "blocked" && userProfile.flag !== "pending"){
       let notDisturbCircle = document.createElement("div");
       let notDisturbSubCircle = document.createElement("div");
       notDisturbCircle.classList.add("notdisturb-circle", `ndcg${c}`);
@@ -186,13 +194,15 @@ const generateProfilesColumn2 = function(array){
       document.querySelector(`.epfpg${i}`).appendChild(notDisturbCircle);
       notDisturbSubCircle.classList.add("notdisturb-subcircle");
       document.querySelector(`.ndcg${c}`).appendChild(notDisturbSubCircle);
-    } else if (userProfile["active-status"] === "offline") {
+    } else if (userProfile["active-status"] === "offline" && userProfile.flag !== "blocked" && userProfile.flag !== "pending") {
       let offlineCircle = document.createElement("div");
-      let offlineSubCircle = document.createComment("div");
+      let offlineSubCircle = document.createElement("div");
       offlineCircle.classList.add("offline-circle", `offcg${c}`);
       document.querySelector(`.epfpg${i}`).appendChild(offlineCircle);
       offlineSubCircle.classList.add("offline-subcircle");
       document.querySelector(`.offcg${c}`).appendChild(offlineSubCircle);
+    } else if (userProfile.flag === "pending") {
+      console.log(userProfile);
     }
     
     //Display Name, ID
@@ -201,7 +211,9 @@ const generateProfilesColumn2 = function(array){
     displayName.innerHTML = `${userProfile.name} <span class="c2-text-span">#${userProfile.id}</span><br><span class="c2-text-span-under">${generateProfileActivity(userProfile)}</span>`
     document.querySelector(`.eg${i}`).appendChild(displayName);
 
-    generateElementIcons(i, userProfile);
+    if (userProfile.flag !== "blocked" && userProfile.flag !== "pending"){
+      generateElementIcons(i, userProfile);
+    }
   })
 }
 
@@ -213,7 +225,7 @@ const buttonVisuals = function(buttonID){
   magnifyingGlass.style.display = "block";
   closeIcon.style.display = "none";
 
-
+  let changeTitle = document.querySelector("#statusTab");
   let tabs = document.querySelectorAll(".afterSep");
   tabs.forEach(function(oneButton){
     oneButton.classList.remove("headerselected");
@@ -221,14 +233,158 @@ const buttonVisuals = function(buttonID){
   if (buttonID === "all") {
     let allButton = document.getElementById("allHeaderContainer");
     allButton.classList.add("headerselected");
+    changeTitle.textContent = "all";
   } else if (buttonID === 'pending'){
     let pendingButton = document.getElementById("pendingHeaderContainer");
     pendingButton.classList.add("headerselected");
+    changeTitle.textContent = "pending";
   } else if (buttonID === 'online'){
     let onlineButton = document.getElementById("onlineHeaderContainer");
     onlineButton.classList.add("headerselected");
+    changeTitle.textContent = "online";
   } else if (buttonID === 'blocked'){
     let blockedButton = document.getElementById("blockedHeaderContainer");
     blockedButton.classList.add("headerselected");
+    changeTitle.textContent = "blocked";
   }
+
+}
+
+function removeAllEventListenersOnSearchInput(){
+  let searchInput = document.querySelector(".inputsearch__input");
+  console.log(searchInput)
+  searchInput.removeEventListener("input", handleInputSearchInputOnline);
+  searchInput.removeEventListener("input", handleInputSearchInputAll);
+  searchInput.removeEventListener("input", handleInputSearchInputPending);
+  searchInput.removeEventListener("input", handleInputSearchInputBlocked);
+
+  let closeButton = document.querySelector("#InputColumn2CloseIcon");
+  closeButton.removeEventListener("click", handleCloseButtonClickOnline);
+  closeButton.removeEventListener("click", handleCloseButtonClickAll);
+  closeButton.removeEventListener("click", handleCloseButtonClickPending);
+  closeButton.removeEventListener("click", handleCloseButtonClickBlocked);
+}
+
+//Searching Online Tab
+function handleInputSearchInputOnline(e) {
+  removeProfilesColumn2();
+  const filteredUsers = currentOnline.filter(user => user.name.toLowerCase().includes(e.target.value.toLowerCase()));
+  generateProfilesColumn2(filteredUsers);
+
+  // Animácia ikonky
+  let magnifyingGlass = document.querySelector("#magnifyingGlass");
+  let closeIcon = document.querySelector("#InputColumn2CloseIcon");
+
+  if (e.target.value === "") {
+      magnifyingGlass.style.display = "block";
+      closeIcon.style.display = "none";
+  } else {
+      magnifyingGlass.style.display = "none";
+      closeIcon.style.display = "block";
+  }
+}
+
+//Searching All tab
+function handleInputSearchInputAll(e) {
+  removeProfilesColumn2();
+  const filteredUsers = currentAll.filter(user => user.name.toLowerCase().includes(e.target.value.toLowerCase()));
+  generateProfilesColumn2(filteredUsers);
+
+  // Animácia ikonky
+  let magnifyingGlass = document.querySelector("#magnifyingGlass");
+  let closeIcon = document.querySelector("#InputColumn2CloseIcon");
+
+  if (e.target.value === "") {
+      magnifyingGlass.style.display = "block";
+      closeIcon.style.display = "none";
+  } else {
+      magnifyingGlass.style.display = "none";
+      closeIcon.style.display = "block";
+  }
+}
+
+//Searching Pending tab
+function handleInputSearchInputPending(e) {
+  removeProfilesColumn2();
+  const filteredUsers = currentPending.filter(user => user.name.toLowerCase().includes(e.target.value.toLowerCase()));
+  generateProfilesColumn2(filteredUsers);
+
+  // Animácia ikonky
+  let magnifyingGlass = document.querySelector("#magnifyingGlass");
+  let closeIcon = document.querySelector("#InputColumn2CloseIcon");
+
+  if (e.target.value === "") {
+      magnifyingGlass.style.display = "block";
+      closeIcon.style.display = "none";
+  } else {
+      magnifyingGlass.style.display = "none";
+      closeIcon.style.display = "block";
+  }
+}
+
+//Searching Blocked tab
+function handleInputSearchInputBlocked(e) {
+  removeProfilesColumn2();
+  const filteredUsers = currentBlocked.filter(user => user.name.toLowerCase().includes(e.target.value.toLowerCase()));
+  generateProfilesColumn2(filteredUsers);
+
+  // Animácia ikonky
+  let magnifyingGlass = document.querySelector("#magnifyingGlass");
+  let closeIcon = document.querySelector("#InputColumn2CloseIcon");
+
+  if (e.target.value === "") {
+      magnifyingGlass.style.display = "block";
+      closeIcon.style.display = "none";
+  } else {
+      magnifyingGlass.style.display = "none";
+      closeIcon.style.display = "block";
+  }
+}
+
+//Pridanie Eventu na close tlačítko - Online Tab
+function handleCloseButtonClickOnline(){
+  let input = document.querySelector(".inputsearch__input");
+  input.value = "";
+  let closeIcon = document.querySelector("#InputColumn2CloseIcon");
+  closeIcon.style.display = "none";
+  let magnifyingGlass = document.querySelector("#magnifyingGlass");
+  magnifyingGlass.style.display = "block";
+  removeProfilesColumn2();
+  generateProfilesColumn2(currentTabNames);
+}
+
+//Pridanie Eventu na close tlačítko - All Tab
+function handleCloseButtonClickAll(){
+  let input = document.querySelector(".inputsearch__input");
+  input.value = "";
+  let closeIcon = document.querySelector("#InputColumn2CloseIcon");
+  closeIcon.style.display = "none";
+  let magnifyingGlass = document.querySelector("#magnifyingGlass");
+  magnifyingGlass.style.display = "block";
+  removeProfilesColumn2();
+  generateProfilesColumn2(currentAll);
+}
+
+//Pridanie Eventu na close tlačítko - Pending Tab
+function handleCloseButtonClickPending(){
+  let input = document.querySelector(".inputsearch__input");
+  input.value = "";
+  let closeIcon = document.querySelector("#InputColumn2CloseIcon");
+  closeIcon.style.display = "none";
+  let magnifyingGlass = document.querySelector("#magnifyingGlass");
+  magnifyingGlass.style.display = "block";
+  removeProfilesColumn2();
+  generateProfilesColumn2(currentPending);
+}
+
+//Pridanie Eventu na close tlačítko - Blocked Tab
+function handleCloseButtonClickBlocked(){
+  let input = document.querySelector(".inputsearch__input");
+  input.value = "";
+  let closeIcon = document.querySelector("#InputColumn2CloseIcon");
+  closeIcon.style.display = "none";
+  let magnifyingGlass = document.querySelector("#magnifyingGlass");
+  magnifyingGlass.style.display = "block";
+  removeProfilesColumn2();
+  generateProfilesColumn2(currentBlocked);
 }

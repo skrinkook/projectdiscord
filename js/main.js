@@ -128,7 +128,16 @@ document.querySelector(".left-scroller-guilds").addEventListener("scroll", funct
 /*---------------------------------------------------------------------*/
 fetchJsonData().then(users => {
     let userProfiles = users;
-    openedProfiles = userProfiles.filter(user => user.opened === 1);
+    openedProfiles = userProfiles.filter(user => user.opened === 1 && user.flag !== "blocked" && user.flag !== "pending");
+
+    //Vyfiltrovaní používatelia
+    const online = userProfiles.filter(user => user["active-status"] !== "offline" && user.flag !== "blocked" && user.flag !== "pending");
+    const all = userProfiles.filter(user => user.flag !== "blocked" && user.flag !== "pending");
+    const pending = userProfiles.filter(user => user.flag === "pending");
+    const blocked = userProfiles.filter(user => user.flag === "blocked");
+    console.log(online, all, pending, blocked)
+
+    //Generovanie First Column
     for (i = 0; i < openedProfiles.length; i++){
         let columnElement = document.createElement("div");
         columnElement.classList.add("message-column__element");
@@ -218,73 +227,65 @@ fetchJsonData().then(users => {
     }
 
     //Vyfiltruje zo všetkých užívateľov iba tých, ktorí nie sú offline
-    const onlineTab = userProfiles.filter(user => user["active-status"] !== "offline");
+    const onlineTab = userProfiles.filter(user => user["active-status"] !== "offline" && user.flag !== "blocked" && user.flag !== "pending");
     onlineTab.sort((a, b) => a.name.localeCompare(b.name));
-    console.log(onlineTab);
     
-    //Click eventy na filtrovanie používateľov
-    document.querySelector("#onlineHeaderContainer").addEventListener("click", function(){
-        buttonVisuals('online')
-    });
-    document.querySelector("#allHeaderContainer").addEventListener("click", function(){
-        buttonVisuals('all')
-    });
-    document.querySelector("#pendingHeaderContainer").addEventListener("click", function(){
-        buttonVisuals('pending')
-    });
-    document.querySelector("#blockedHeaderContainer").addEventListener("click", function(){
-        buttonVisuals('blocked')
-    });
-
-
-
-
-
-
-
-
-
-
-
-
-
     generateProfilesColumn2(onlineTab);
 
     currentTabNames = onlineTab;
-
-    document.querySelector(".inputsearch__input").addEventListener("input", function(e) {
-        removeProfilesColumn2();
-        const filteredUsers = currentTabNames.filter(user => user.name.toLowerCase().includes((e.target.value).toLowerCase()));
-        generateProfilesColumn2(filteredUsers);
-
-        //Animácia ikonky
-        let magnifyingGlass = document.querySelector("#magnifyingGlass");
-        let closeIcon = document.querySelector("#InputColumn2CloseIcon");
-
-        if (e.target.value === ""){
-            magnifyingGlass.style.display = "block";
-            closeIcon.style.display = "none";
-            
-        } else {
-            magnifyingGlass.style.display = "none";
-            closeIcon.style.display = "block";
-
-        } 
-    });
+    currentOnline = online;
+    currentAll = all;
+    currentPending = pending;
+    currentBlocked = blocked;
+    
+    document.querySelector(".inputsearch__input").addEventListener("input", handleInputSearchInputOnline);
 
     //Close Button Event
-    document.querySelector("#InputColumn2CloseIcon").addEventListener("click", function(){
-        let input = document.querySelector(".inputsearch__input");
-        input.value = "";
-        let closeIcon = document.querySelector("#InputColumn2CloseIcon");
-        closeIcon.style.display = "none";
-        let magnifyingGlass = document.querySelector("#magnifyingGlass");
-        magnifyingGlass.style.display = "block";
+    document.querySelector("#InputColumn2CloseIcon").addEventListener("click", handleCloseButtonClickOnline);
+
+    let searchInput = document.querySelector(".inputsearch__input");
+    let closeButton = document.querySelector("#InputColumn2CloseIcon");
+
+    //Click eventy na filtrovanie používateľov
+    function onlineClickEvent(){
+        buttonVisuals('online');
+        removeAllEventListenersOnSearchInput();
         removeProfilesColumn2();
-        generateProfilesColumn2(currentTabNames);
-    })
+        generateProfilesColumn2(online.sort((a, b) => a.name.localeCompare(b.name)));
+        searchInput.addEventListener("input", handleInputSearchInputOnline);
+        closeButton.addEventListener("click", handleCloseButtonClickOnline);
+    }
+    function allClickEvent(){
+        buttonVisuals('all');
+        removeAllEventListenersOnSearchInput();
+        removeProfilesColumn2();
+        generateProfilesColumn2(all.sort((a, b) => a.name.localeCompare(b.name)));
+        searchInput.addEventListener("input", handleInputSearchInputAll);
+        closeButton.addEventListener("click", handleCloseButtonClickAll);
+    }
+    function pendingClickEvent(){
+        buttonVisuals('pending');
+        removeAllEventListenersOnSearchInput();
+        removeProfilesColumn2();
+        generateProfilesColumn2(pending.sort((a, b) => a.name.localeCompare(b.name)));
+        searchInput.addEventListener("input", handleInputSearchInputPending);
+        closeButton.addEventListener("click", handleCloseButtonClickPending);
+    }
+    function blockedClickEvent(){
+        buttonVisuals('blocked');
+        removeAllEventListenersOnSearchInput();
+        removeProfilesColumn2();
+        generateProfilesColumn2(blocked.sort((a, b) => a.name.localeCompare(b.name)));
+        searchInput.addEventListener("input", handleInputSearchInputBlocked);
+        closeButton.addEventListener("click", handleCloseButtonClickBlocked);
+    }
+    
 
 
+    document.querySelector("#onlineHeaderContainer").addEventListener("click", onlineClickEvent);
+    document.querySelector("#allHeaderContainer").addEventListener("click", allClickEvent);
+    document.querySelector("#pendingHeaderContainer").addEventListener("click", pendingClickEvent);
+    document.querySelector("#blockedHeaderContainer").addEventListener("click", blockedClickEvent);
 
 
 

@@ -38,7 +38,8 @@
             "active-status": "offline",
             "opened": 1,
             "activity": "Cyberpunk",
-            "icon-color": "#C4765F"
+            "icon-color": "#C4765F",
+            "flag": "blocked"
         },
         {
             "name": "MusicLover",
@@ -214,7 +215,8 @@
             "active-status": "online",
             "opened": 1,
             "activity": 0,
-            "icon-color": "#ACAC55"
+            "icon-color": "#ACAC55",
+            "flag": "pending"
         },
         {
             "name": "ArtFanatic",
@@ -222,7 +224,8 @@
             "active-status": "offline",
             "opened": 1,
             "activity": "Minecraft",
-            "icon-color": "#E34E97"
+            "icon-color": "#E34E97",
+            "flag": "pending"
         },
         {
             "name": "CoffeeLover",
