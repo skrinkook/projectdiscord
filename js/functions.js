@@ -204,3 +204,31 @@ const generateProfilesColumn2 = function(array){
     generateElementIcons(i, userProfile);
   })
 }
+
+const buttonVisuals = function(buttonID){
+  let inputSearch = document.querySelector(".inputsearch__input");
+  inputSearch.value = "";
+  let magnifyingGlass = document.querySelector("#magnifyingGlass");
+  let closeIcon = document.querySelector("#InputColumn2CloseIcon");
+  magnifyingGlass.style.display = "block";
+  closeIcon.style.display = "none";
+
+
+  let tabs = document.querySelectorAll(".afterSep");
+  tabs.forEach(function(oneButton){
+    oneButton.classList.remove("headerselected");
+  })
+  if (buttonID === "all") {
+    let allButton = document.getElementById("allHeaderContainer");
+    allButton.classList.add("headerselected");
+  } else if (buttonID === 'pending'){
+    let pendingButton = document.getElementById("pendingHeaderContainer");
+    pendingButton.classList.add("headerselected");
+  } else if (buttonID === 'online'){
+    let onlineButton = document.getElementById("onlineHeaderContainer");
+    onlineButton.classList.add("headerselected");
+  } else if (buttonID === 'blocked'){
+    let blockedButton = document.getElementById("blockedHeaderContainer");
+    blockedButton.classList.add("headerselected");
+  }
+}

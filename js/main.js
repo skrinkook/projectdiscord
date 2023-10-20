@@ -222,34 +222,31 @@ fetchJsonData().then(users => {
     onlineTab.sort((a, b) => a.name.localeCompare(b.name));
     console.log(onlineTab);
     
-    const functionArray = ["clickHandlerOnline", "clickHandlerAll", "clickHandlerPending", "Blocked"]
-    
+    //Click eventy na filtrovanie používateľov
+    document.querySelector("#onlineHeaderContainer").addEventListener("click", function(){
+        buttonVisuals('online')
+    });
+    document.querySelector("#allHeaderContainer").addEventListener("click", function(){
+        buttonVisuals('all')
+    });
+    document.querySelector("#pendingHeaderContainer").addEventListener("click", function(){
+        buttonVisuals('pending')
+    });
+    document.querySelector("#blockedHeaderContainer").addEventListener("click", function(){
+        buttonVisuals('blocked')
+    });
 
-    //Táto kktina na filtrovanie funguje ako chce ..... treba upraviť
-    function clickHandlerAll() {
-        console.log("test");
-        let selectedElement = document.querySelector(".headerselected");
-        selectedElement.classList.remove("headerselected");
-        let allElement = document.querySelector("#allHeaderContainer");
-        allElement.classList.add("headerselected");
 
 
-        let tabs = document.querySelectorAll(".afterSep");
-        for (let i = 0; i < tabs.length; i++) {
-            if (i !== 1) {
-              tabs[i].addEventListener("click", function() {
-                console.log(functionArray[i]);
-              });
-            }
-          }
 
-        // Remove the event listener after the first click
-        document.querySelector("#allHeaderContainer").removeEventListener("click", clickHandlerAll);
 
-    }
-    
-    
-    document.querySelector("#allHeaderContainer").addEventListener("click", clickHandlerAll);
+
+
+
+
+
+
+
 
     generateProfilesColumn2(onlineTab);
 
