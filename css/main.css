@@ -357,6 +357,7 @@ div::-webkit-scrollbar {
     justify-content: center;
     align-items: center;
 }
+
 .helpcircle {
     width: 20px;
     height: 20px;
@@ -366,13 +367,16 @@ div::-webkit-scrollbar {
     justify-content: center;
     align-items: center;
 }
+
 #questionMarkIcon {
     color: var(--BGCOLOR-HEADER-CONTAINER-LIGHT);
     transform: scale(0.7);
 }
+
 #inboxIcon {
     transform: scale(0.9);
 }
+
 #newGroupDMIcon {
     transform: scale(0.9);
 }
