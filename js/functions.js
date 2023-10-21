@@ -362,3 +362,105 @@ function handleCloseButtonClickBlocked(){
   generateProfilesColumn2(currentBlocked);
 }
 
+
+const generateActivityColumn3 = function(usersArray){
+  let i = 0;
+  usersArray.sort((a, b) => a.name.localeCompare(b.name));
+
+  usersArray.forEach((oneUser) => {
+    i++
+    //console.log(oneUser.activity);
+    let activityElement = document.createElement("div");
+    activityElement.classList.add("activity-element", `AEG${i}`)
+    document.querySelector(".activity-column").appendChild(activityElement);
+
+    let activityElementInner = document.createElement("div");
+    activityElementInner.classList.add("activity-element__inner", `AEIG${i}`);
+    document.querySelector(`.AEG${i}`).appendChild(activityElementInner);
+
+    let elementPFP = document.createElement("div");
+    elementPFP.classList.add("element-pfp", `AEIPFPG${i}`)
+    elementPFP.style.backgroundColor = oneUser["icon-color"];
+    activityElementInner.appendChild(elementPFP);
+
+    if (oneUser["active-status"] === "online"){
+      let onlineCircle = document.createElement("div");
+      onlineCircle.classList.add("online-circle", `c3ocg${i}`);
+      elementPFP.appendChild(onlineCircle);
+    } else if (oneUser["active-status"] === "away"){
+      let awayCircle = document.createElement("div");
+      awayCircle.classList.add("away-circle", `c3acg${i}`);
+      let awaySubCircle = document.createElement("div");
+      awaySubCircle.classList.add("away-subcircle");
+      elementPFP.appendChild(awayCircle);
+      awayCircle.appendChild(awaySubCircle);
+    } else if (oneUser["active-status"] === "notdisturb"){
+      let notDisturbCircle = document.createElement("div");
+      notDisturbCircle.classList.add("notdisturb-circle", `c3ndcg${i}`);
+      let notDisturbSubCircle = document.createElement("div");
+      notDisturbSubCircle.classList.add("notdisturb-subcircle");
+      elementPFP.appendChild(notDisturbCircle);
+      notDisturbCircle.appendChild(notDisturbSubCircle);
+    }
+
+    let displayName = document.createElement("h2");
+    displayName.classList.add("column2_element-text", "c3-activity-text")
+    displayName.innerHTML = `${oneUser.name}<span class="c2-text-span-under"><br>${oneUser.activity} - </span><span class="c2-text-span-under c3-time">${Math.floor(Math.random() * 5) + 1}h</span>`;
+    activityElementInner.appendChild(displayName);
+
+    let activityIcon = document.createElement("div");
+    activityIcon.classList.add("activity-element-icon");
+
+    activityElementInner.appendChild(activityIcon);
+
+    if (oneUser.activity === "League of Legends") {
+      let innerDetails = document.createElement("div");
+      innerDetails.classList.add("activity-element__innerDetails");
+      activityElement.appendChild(innerDetails);
+      activityIcon.style.backgroundImage = "url(../icons/leagueofLegendsSmallLogo.png)";
+
+      innerDetails.innerHTML = `
+        <div class="c3-large-icon" style="background-image: url(../icons/leagueoflegendsLogo.png);"></div>
+        <div class="details-text">
+          <h2 class="details-text-heading">
+            <span class="C3Line1">Playing a game</span><br>
+            <span class="C3Line2">In Game</span><br>
+            <span class="C3Line3 c3g${i}">00:00 elapsed</span>
+          </h2>
+        </div>
+      `;
+
+  
+    const timerElement = document.querySelector(`.c3g${i}`);
+    let minutes = Math.floor(Math.random() * 40) + 1;
+    let seconds = Math.floor(Math.random() * 59) + 1;
+    let timerInterval;
+
+    function updateTimer() {
+      seconds++;
+      if (seconds === 60) {
+        seconds = 0;
+        minutes++;
+      }
+
+      const formattedMinutes = String(minutes).padStart(2, "0");
+      const formattedSeconds = String(seconds).padStart(2, "0");
+      timerElement.textContent = formattedMinutes + ":" + formattedSeconds + " elapsed";
+    }
+
+    timerInterval = setInterval(updateTimer, 1000);
+
+
+
+    } else if (oneUser.activity === "Grand Theft Auto V"){
+      activityIcon.style.backgroundImage = "url(../icons/gtaVlogo.png)";
+    } else if (oneUser.activity === "Minecraft"){
+      activityIcon.style.backgroundImage = "url(../icons/minecraftLogo.png)";
+    } else if (oneUser.activity === "Spotify"){
+      activityIcon.style.backgroundImage = "url(../icons/spotifyLogo.png)"
+    }
+
+
+
+  })
+}

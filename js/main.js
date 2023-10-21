@@ -287,7 +287,11 @@ fetchJsonData().then(users => {
     document.querySelector("#pendingHeaderContainer").addEventListener("click", pendingClickEvent);
     document.querySelector("#blockedHeaderContainer").addEventListener("click", blockedClickEvent);
 
+    let activityUsers = online.filter(function(user){
+        return user.activity !== 0; 
+    })
 
+    generateActivityColumn3(activityUsers);
 
 
 

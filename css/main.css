@@ -108,13 +108,15 @@ h2 {
     height: 100%;
     background-color: var(--BGCOLOR-SCROLLER-GUILDS);
     overflow-y: auto;
+    scrollbar-width: none;
 }
 
 /*hides scrollbar that was created*/
 div::-webkit-scrollbar {
     display: none;
+    width: 0;
   }
-  
+ 
 
 .scroller-server {
     width: 100%;
@@ -1000,7 +1002,6 @@ span.material-symbols-outlined {
     border: 1px solid rgba(148, 155, 164, 0.2);
     margin-bottom: 8px;
     background-color: var(--BGCOLOR-HEADER-CONTAINER-DARKER);
-    display: inline-block;
     border-radius: 8px;
     padding: 16px;
     cursor: pointer;
@@ -1035,7 +1036,8 @@ span.material-symbols-outlined {
 .activity-element-icon {
     height: 24px;
     width: 24px;
-    background-color: red;
+    background-position: center;
+    background-size: cover;
     margin-left: auto;
     border-radius: 5px;
 
@@ -1044,9 +1046,9 @@ span.material-symbols-outlined {
 .c3-large-icon {
     width: 34px;
     height: 34px;
-    background-color: red;
     border-radius: 5px;
-
+    background-position: center;
+    background-size: cover;
 }
 
 .details-text {
@@ -1063,12 +1065,12 @@ h2.details-text-heading {
 
 span.C3Line2 {
     font-size: 12px;
-    color: var(--FONTCOLOR-MENU);
+    opacity: 0.8;
 }
 
 span.C3Line3 {
     font-size: 12px;
-    color: var(--FONTCOLOR-MENU);
+    opacity: 0.8;
 }
 
 @media (max-width: 1200px){
