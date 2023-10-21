@@ -450,6 +450,7 @@ div::-webkit-scrollbar {
     background-color: var(--COLOR-HEADER-HOVER);
     color: rgb(217, 217, 217);
 }
+
 .afterSep:active:not(:last-child) {
     background-color: var(--COLOR-HEADER-ACTIVE);
 }
@@ -471,6 +472,7 @@ div::-webkit-scrollbar {
     padding: 2px 8px 2px 8px;
     margin: 0 8px 0 8px;
 }
+
 h2.header__addFriend {
     color: white;
 }
@@ -607,6 +609,7 @@ h2.header__addFriend {
     justify-content: center;
     padding-bottom: 2px;
 }
+
 .direct-messages__add-symbol:hover {
     color: var(--FONTCOLOR-MENU-HOVER);
 }
@@ -636,6 +639,7 @@ h2.header__addFriend {
     justify-content: center;
     align-items: center;
 }
+
 .message-column__element:hover .online-circle {
     border: 3px solid var(--BGCOLOR-HEADER-CONTAINER-LIGHT)
 }
@@ -654,6 +658,7 @@ h2.header__addFriend {
     justify-content: center;
     align-items: center;
 }
+
 .offline-subcircle {
     position: absolute;
     width: 5px;
@@ -661,9 +666,11 @@ h2.header__addFriend {
     background-color: var(--BGCOLOR-HEADER-CONTAINER-DARKER);
     border-radius: 50%;
 }
+
 .message-column__element:hover .offline-circle {
     border: 3px solid var(--BGCOLOR-HEADER-CONTAINER-LIGHT);
 }
+
 .message-column__element:hover .offline-circle .offline-subcircle{
     background-color: var(--BGCOLOR-HEADER-CONTAINER-LIGHT);
 }
@@ -681,6 +688,7 @@ h2.header__addFriend {
     display: flex;
     overflow: hidden;
 }
+
 .away-subcircle {
     position: absolute;
     left: -2px;
@@ -690,9 +698,11 @@ h2.header__addFriend {
     background-color: var(--BGCOLOR-HEADER-CONTAINER-DARKER);
     border-radius: 50%;
 }
+
 .message-column__element:hover .away-circle {
     border: 3px solid var(--BGCOLOR-HEADER-CONTAINER-LIGHT);
 }
+
 .message-column__element:hover .away-circle .away-subcircle{
     background-color: var(--BGCOLOR-HEADER-CONTAINER-LIGHT);
 }
@@ -711,15 +721,18 @@ h2.header__addFriend {
     justify-content: center;
     align-items: center;
 }
+
 .notdisturb-subcircle {
     position: absolute;
     width: 7px;
     height: 3px;
     background-color: var(--BGCOLOR-HEADER-CONTAINER-DARKER)
 }
+
 .message-column__element:hover .notdisturb-circle {
     border: 3px solid var(--BGCOLOR-HEADER-CONTAINER-LIGHT);
 }
+
 .message-column__element:hover .notdisturb .away-subcircle{
     background-color: var(--BGCOLOR-HEADER-CONTAINER-LIGHT);
 }
@@ -760,6 +773,7 @@ h2.header__addFriend {
     padding-left: 3px;
     cursor: pointer;
 }
+
 .footer__left:hover,
 .footer__left:focus {
     background-color: var(--BGCOLOR-MESSAGE-ELEMENT-ACTIVE);
@@ -784,22 +798,24 @@ h2.header__addFriend {
     cursor: pointer;
 }
 
-
 .microphoneOFF {
     display: none;
     justify-content: center;
     align-items: center;
 }
+
 .microphoneON {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .soundsOFF {
     display: none;
     justify-content: center;
     align-items: center;
 }
+
 .soundsON {
     display: flex;
     justify-content: center;
@@ -822,6 +838,7 @@ h2.header__addFriend {
 .column2__inputsection {
     padding: 13px 25px 0 25px;
 }
+
 .inputsearch {
     width: 100%;
     height: 34px;
@@ -830,6 +847,7 @@ h2.header__addFriend {
     display: flex;
     position: relative;
 }
+
 .input-icon-part {
     height: 100%;
     width: 34px;
@@ -842,6 +860,7 @@ h2.header__addFriend {
     align-items: center;
     cursor: text;
 }
+
 #magnifyingGlass,
 #InputColumn2CloseIcon {
     transform: scale(1);
@@ -858,6 +877,7 @@ h2.header__addFriend {
     color: var(--FONTCOLOR-INPUT-SEARCH);
 
 }
+
 .inputsearch__input::placeholder{
     color: var(--FONTCOLOR-MENU);
 }
@@ -871,9 +891,11 @@ h2.header__addFriend {
     border-radius: 8px;
     height: 61px;
 }
+
 .column2__elementouter:last-child {
     margin-bottom: 15px;
 }
+
 .column2__element {
     width: 100%;
     height: 100%;
@@ -883,9 +905,11 @@ h2.header__addFriend {
     align-items: center;
     position: relative;
 }
+
 .column2__element .element-pfp{
     margin-bottom: 7px;
 }
+
 .column2__elementouter:hover,
 .column2__elementouter:focus {
     background-color: var(--BGCOLOR-MESSAGE-ELEMENT-ACTIVE);
@@ -898,6 +922,7 @@ h2.header__addFriend {
     font-family: var(--FONT-SEMIBOLD);
     line-height: 1.2;
 }
+
 .c2-text-span {
     margin-left: 5px;
     font-family: var(--FONT-SEMIBOLD);
@@ -905,6 +930,7 @@ h2.header__addFriend {
     color: var(--FONTCOLOR-MENU);
     display: none;
 }
+
 .column2__elementouter:hover .c2-text-span {
     display: inline-block;
   }
@@ -932,13 +958,16 @@ h2.header__addFriend {
     justify-content: center;
     align-items: center;
 }
+
 .column2__elementouter:hover .message-icon-c2, 
 .column2__elementouter:hover .options-icon-c2 {
     background-color: var(--BGCOLOR-SCROLLER-GUILDS);
 }
+
 span.material-symbols-outlined {
     transform: scale(0.8);
 }
+
 .message-icon-c2:hover span.material-symbols-outlined,
 .options-icon-c2:hover span.material-symbols-outlined {
     color: var(--FONTCOLOR-MENU-HOVER);
