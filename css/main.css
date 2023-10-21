@@ -49,7 +49,7 @@ font-family: 'Sans-GG-Semibold';
     --COLOR-HEADER-BORDER-BOTTOM: hsl(0, 0%, 0%, 0.2);
 
     /* || FONT COLORS */
-    --FONTCOLOR-MENU: #949BA4;
+    --FONTCOLOR-MENU: rgb(148, 155, 164);
     --FONTCOLOR-MENU-HOVER: rgba(255, 255, 255, 0.85);
     --FONTCOLOR-SEARCHSIDE-BUTTON: hsl(0, 0%, 100%, 0.5);
     --FONTCOLOR-SPEECH-BUBBLE: white;
@@ -348,8 +348,14 @@ div::-webkit-scrollbar {
     margin: 0 8px 0 8px;
     cursor: pointer;
 }
+
 .rightSideIcons:first-child {
     margin-right: 16px;
+}
+
+.rightSideIcons:hover,
+.rightSideIcons:focus {
+    color: rgb(217, 217, 217);
 }
 
 .buttons-side__right__icon-help {
@@ -366,6 +372,10 @@ div::-webkit-scrollbar {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.helpcircle:hover {
+    background-color: rgb(217, 217, 217);
 }
 
 #questionMarkIcon {
@@ -451,6 +461,7 @@ div::-webkit-scrollbar {
     color: rgb(217, 217, 217);
     cursor: default;
 }
+
 .headerselected:hover {
     background-color: var(--COLOR-HEADER-ACTIVE);
 }
@@ -955,11 +966,80 @@ span.material-symbols-outlined {
     margin-bottom: 20px;
 }
 
-.activity-div {
+.activity-element {
     width: 100%;
-    height: 160px;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    margin-bottom: 10px;
+    border: 1px solid rgba(148, 155, 164, 0.2);
+    margin-bottom: 8px;
+    background-color: var(--BGCOLOR-HEADER-CONTAINER-DARKER);
+    display: inline-block;
+    border-radius: 8px;
+    padding: 16px;
+    cursor: pointer;
+}
+
+.activity-element:hover,
+.activity-element:focus {
+    background-color: var(--BGCOLOR-SCROLLER-GUILDS);
+}
+
+.activity-element__inner {
+    width: 100%;
+    height: 36px;
+    display: flex;
+    align-items: center;
+}
+
+.activity-element__innerDetails {
+    margin-top: 8px;
+    width: 100%;
+    height: 74px;
+    padding: 12px;
+    background-color: var(--BGCOLOR-HEADER-CONTAINER-LIGHT);
+    border-radius: 8px;
+    display: flex;
+}
+
+.column2_element-text.c3-activity-text {
+    line-height: 1.1;
+}
+
+.activity-element-icon {
+    height: 24px;
+    width: 24px;
+    background-color: red;
+    margin-left: auto;
+    border-radius: 5px;
+
+}
+
+.c3-large-icon {
+    width: 34px;
+    height: 34px;
+    background-color: red;
+    border-radius: 5px;
+
+}
+
+.details-text {
+    height: 100%;
+    display: inline-block;
+    margin-left: 15px;
+}
+
+h2.details-text-heading {
+    font-size: 14px;
+    color: var(--FONTCOLOR-MENU-HOVER);
+    line-height: 1.1;
+}
+
+span.C3Line2 {
+    font-size: 12px;
+    color: var(--FONTCOLOR-MENU);
+}
+
+span.C3Line3 {
+    font-size: 12px;
+    color: var(--FONTCOLOR-MENU);
 }
 
 @media (max-width: 1200px){
@@ -967,5 +1047,6 @@ span.material-symbols-outlined {
         display: none;
     }
 }
+
 
 

@@ -361,3 +361,4 @@ function handleCloseButtonClickBlocked(){
   removeProfilesColumn2();
   generateProfilesColumn2(currentBlocked);
 }
+
