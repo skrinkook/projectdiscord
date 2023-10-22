@@ -84,11 +84,13 @@ h3 {
     font-family: var(--FONT-SEMIBOLD);
     font-size: var(--FONTSIZE-H3);
     color: var(--FONTCOLOR-MENU);
+    font-weight: 100;
 }
 
 h2 {
     font-family: var(--FONT-MEDIUM);
     font-size: var(--FONTSIZE-H2);
+    font-weight: 100;
 }
 
 .main-container {
@@ -97,6 +99,10 @@ h2 {
     background-color: #808080FF;
     width: 100vw;
     height: 100vh;
+}
+
+h1 {
+    font-weight: 100;
 }
 
 /* || Left Scroller */
@@ -109,6 +115,7 @@ h2 {
     background-color: var(--BGCOLOR-SCROLLER-GUILDS);
     overflow-y: auto;
     scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 /*hides scrollbar that was created*/
@@ -523,6 +530,8 @@ h2.header__addFriend {
     background-color: var(--BGCOLOR-HEADER-CONTAINER-DARKER);
     overflow-y: auto;
     padding: 8px 8px 0 8px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .message-column__element {
@@ -835,6 +844,8 @@ h2.header__addFriend {
     height: 100%;
     background-color: var(--BGCOLOR-HEADER-CONTAINER-LIGHT);
     overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .column2__inputsection {
@@ -988,6 +999,8 @@ span.material-symbols-outlined {
     border-left: 1px solid hsl(0,0%,50%,0.2);
     padding: 25px 15px 0 15px;
     overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 #active-now__h1 {

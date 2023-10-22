@@ -417,10 +417,10 @@ const generateActivityColumn3 = function(usersArray){
       let innerDetails = document.createElement("div");
       innerDetails.classList.add("activity-element__innerDetails");
       activityElement.appendChild(innerDetails);
-      activityIcon.style.backgroundImage = "url(../icons/leagueofLegendsSmallLogo.png)";
+      activityIcon.style.backgroundImage = "url(./icons/leagueofLegendsSmallLogo.png)";
 
       innerDetails.innerHTML = `
-        <div class="c3-large-icon" style="background-image: url(../icons/leagueoflegendsLogo.png);"></div>
+        <div class="c3-large-icon" style="background-image: url(./icons/leagueoflegendsLogo.png);"></div>
         <div class="details-text">
           <h2 class="details-text-heading">
             <span class="C3Line1">Playing a game</span><br>
@@ -453,11 +453,11 @@ const generateActivityColumn3 = function(usersArray){
 
 
     } else if (oneUser.activity === "Grand Theft Auto V"){
-      activityIcon.style.backgroundImage = "url(../icons/gtaVlogo.png)";
+      activityIcon.style.backgroundImage = "url(./icons/gtaVlogo.png)";
     } else if (oneUser.activity === "Minecraft"){
-      activityIcon.style.backgroundImage = "url(../icons/minecraftLogo.png)";
+      activityIcon.style.backgroundImage = "url(./icons/minecraftLogo.png)";
     } else if (oneUser.activity === "Spotify"){
-      activityIcon.style.backgroundImage = "url(../icons/spotifyLogo.png)"
+      activityIcon.style.backgroundImage = "url(./icons/spotifyLogo.png)"
     }
 
 
