@@ -365,4 +365,9 @@ document.querySelector(".direct-messages__add-symbol").addEventListener("mouseen
 
 console.log(`Position from top: ${getPosition(".direct-messages__add-symbol").top}`);
 
+window.addEventListener('load', function () {
+    console.log("Loading Completed");
+    let loadingScreen = document.querySelector(".loadingscreen");
+    loadingScreen.style.display = "none";
+});
 

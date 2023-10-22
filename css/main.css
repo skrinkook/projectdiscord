@@ -99,10 +99,25 @@ h2 {
     background-color: #808080FF;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
 }
 
 h1 {
     font-weight: 100;
+}
+
+/* || Loading Screen */
+/*------------------------*/
+.loadingscreen {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--BGCOLOR-HEADER-CONTAINER-LIGHT);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
 }
 
 /* || Left Scroller */
@@ -217,6 +232,14 @@ div::-webkit-scrollbar {
       opacity: 100%;
     }
   }
+@keyframes opacityDecrease {
+    from {
+        opacity: 100%;
+    }
+    to {
+        opacity: 0;
+    }
+}
 
 .icon-status__active {
     position: absolute;
