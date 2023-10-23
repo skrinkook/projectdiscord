@@ -21,13 +21,11 @@ function fetchJsonData() {
 //This will generate red pill (+classes) with number of notifications for the guilds scroller on the left
 const generateRedPillAndNumber = function(i, notificationsNumber){
     let displayRedBox = document.createElement("div");
-    displayRedBox.classList.add("icon-status__active");
-    displayRedBox.classList.add(`genRedBox${i + 1}`);
+    displayRedBox.classList.add("icon-status__active", `genRedBox${i + 1}`);
     document.querySelector(`.genIconFrame${i + 1}`).appendChild(displayRedBox);
     let displayNumber = document.createElement("p");
     displayNumber.textContent = notificationsNumber;
-    displayNumber.classList.add("icon-status__active__number");
-    displayNumber.classList.add(`genDisplayNumber${i + 1}`);
+    displayNumber.classList.add("icon-status__active__number", `genDisplayNumber${i + 1}`);
     document.querySelector(`.genRedBox${i + 1}`).appendChild(displayNumber);
 }
 
@@ -115,7 +113,7 @@ const generateProfilesColumn2 = function(array){
   let spanChange = document.querySelector("#onlineTitleSpan");
   spanChange.textContent = array.length;
 
-  //span.textContent = array.length;
+  array = array.sort((a, b) => a.name.localeCompare(b.name));
 
   array.forEach((userProfile) => {
 

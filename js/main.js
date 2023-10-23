@@ -3,14 +3,12 @@ const numberOfServerIcons = 15; //bude treba upraviť aby číslo sa rovnalo po�
 for (let i = 0; i < numberOfServerIcons; i++){
     //Div v ktorom bude ikonka, pill na boku a počet upozornení
     const div = document.createElement("div");
-    div.classList.add("scroller-server");
-    div.classList.add(`gen${i + 1}`);
+    div.classList.add("scroller-server", `gen${i + 1}`);
     document.querySelector(".left-scroller-guilds").appendChild(div);
 
     //Vygeneruje samotný kruh pre ikonku serveru
     const circle = document.createElement("div");
-    circle.classList.add("server-icon");
-    circle.classList.add(`genIconFrame${i + 1}`);
+    circle.classList.add("server-icon", `genIconFrame${i + 1}`);
 
     //Hover Eventy
     //Čo sa má stať keď užívateľ dá myšku ikonku
@@ -27,22 +25,18 @@ for (let i = 0; i < numberOfServerIcons; i++){
         //Vygenerovanie html štruktúry pre speech Bubble
         let bodyElement = document.body;
         let speechBubble = document.createElement("div");
-        speechBubble.classList.add("speech-bubble");
-        speechBubble.classList.add(`genSpeechBubble${i + 1}`);
+        speechBubble.classList.add("speech-bubble", `genSpeechBubble${i + 1}`);
         speechBubble.style.animation = "increaseSize 0.15s forwards";
         bodyElement.appendChild(speechBubble);
         let rectangle = document.createElement("div");
-        rectangle.classList.add("rectangle");
-        rectangle.classList.add(`genRectangle${i + 1}`);
+        rectangle.classList.add("rectangle", `genRectangle${i + 1}`);
         speechBubble.appendChild(rectangle);
         let triangle = document.createElement("div");
-        triangle.classList.add("triangle");
-        triangle.classList.add(`genTriangle${i + 1}`)
+        triangle.classList.add("triangle", `genTriangle${i + 1}`);
         speechBubble.appendChild(triangle);
         let p = document.createElement("p");
         p.innerHTML = "Lorem Ipsum looooool<br> lol";
-        p.classList.add("speech-bubble__text");
-        p.classList.add(`genBubbleText${i + 1}`);
+        p.classList.add("speech-bubble__text", `genBubbleText${i + 1}`);
         rectangle.appendChild(p);
 
         speechBubble.style.top = `${(position.top) + 8}px`; 
@@ -104,8 +98,7 @@ for (let i = 0; i < numberOfServerIcons; i++){
         let pill = servers[i].pill;
         if (pill === 1) {
             const pill = document.createElement("div");
-            pill.classList.add("pill");
-            pill.classList.add(`genPill${i + 1}`);
+            pill.classList.add("pill", `genPill${i + 1}`);
             document.querySelector(`.gen${i + 1}`).appendChild(pill)
         }
 
@@ -140,13 +133,11 @@ fetchJsonData().then(users => {
     //Generovanie First Column
     for (i = 0; i < openedProfiles.length; i++){
         let columnElement = document.createElement("div");
-        columnElement.classList.add("message-column__element");
-        columnElement.classList.add(`columnElementGen${i + 1}`)
+        columnElement.classList.add("message-column__element", `columnElementGen${i + 1}`);
         document.querySelector(".message-column__upperhalf").appendChild(columnElement);
 
         let elementPfp = document.createElement("div");
-        elementPfp.classList.add("element-pfp");
-        elementPfp.classList.add(`pfpGen${i + 1}`);
+        elementPfp.classList.add("element-pfp", `pfpGen${i + 1}`);
         elementPfp.style.backgroundColor = openedProfiles[i]["icon-color"];
         document.querySelector(`.columnElementGen${i + 1}`).appendChild(elementPfp);
 
@@ -159,8 +150,7 @@ fetchJsonData().then(users => {
         } else if (openedProfiles[i]["active-status"] === "away") {
             let awayCircle = document.createElement("div");
             let awaySubCircle = document.createElement("div");
-            awayCircle.classList.add("away-circle");
-            awayCircle.classList.add(`away-circleGen${i + 1}`)
+            awayCircle.classList.add("away-circle", `away-circleGen${i + 1}`);
             awaySubCircle.classList.add("away-subcircle");
             document.querySelector(`.pfpGen${i + 1}`).appendChild(awayCircle);
             document.querySelector(`.away-circleGen${i + 1}`).appendChild(awaySubCircle);
@@ -168,8 +158,7 @@ fetchJsonData().then(users => {
         } else if (openedProfiles[i]["active-status"] === "notdisturb"){
             let notDisturbCircle = document.createElement("div");
             let notDisturbSubCircle = document.createElement("div");
-            notDisturbCircle.classList.add("notdisturb-circle");
-            notDisturbCircle.classList.add(`notdisturb-circleGen${i + 1}`);
+            notDisturbCircle.classList.add("notdisturb-circle", `notdisturb-circleGen${i + 1}`);
             notDisturbSubCircle.classList.add("notdisturb-subcircle");
             document.querySelector(`.pfpGen${i + 1}`).appendChild(notDisturbCircle);
             document.querySelector(`.notdisturb-circleGen${i + 1}`).appendChild(notDisturbSubCircle);
@@ -177,8 +166,7 @@ fetchJsonData().then(users => {
         } else {
             let offlineCircle = document.createElement("div");
             let offlineSubCircle = document.createElement("div");
-            offlineCircle.classList.add("offline-circle");
-            offlineCircle.classList.add(`offline-circleGen${i + 1}`);
+            offlineCircle.classList.add("offline-circle", `offline-circleGen${i + 1}`);
             offlineSubCircle.classList.add("offline-subcircle");
             document.querySelector(`.pfpGen${i + 1}`).appendChild(offlineCircle);
             document.querySelector(`.offline-circleGen${i + 1}`).appendChild(offlineSubCircle);
@@ -186,8 +174,7 @@ fetchJsonData().then(users => {
         //generovanie textu
         let userName = document.createElement("h2");
         userName.textContent = openedProfiles[i]["name"];
-        userName.classList.add("element-text");
-        userName.classList.add(`element-textGen${i + 1}`);
+        userName.classList.add("element-text", `element-textGen${i + 1}`);
         //userName.style.fontSize = "15px";
         document.querySelector(`.columnElementGen${i + 1}`).appendChild(userName);
 
@@ -230,7 +217,7 @@ fetchJsonData().then(users => {
     const onlineTab = userProfiles.filter(user => user["active-status"] !== "offline" && user.flag !== "blocked" && user.flag !== "pending");
     onlineTab.sort((a, b) => a.name.localeCompare(b.name));
     
-    generateProfilesColumn2(onlineTab);
+    generateProfilesColumn2(online);
 
     currentTabNames = onlineTab;
     currentOnline = online;
@@ -251,7 +238,7 @@ fetchJsonData().then(users => {
         buttonVisuals('online');
         removeAllEventListenersOnSearchInput();
         removeProfilesColumn2();
-        generateProfilesColumn2(online.sort((a, b) => a.name.localeCompare(b.name)));
+        generateProfilesColumn2(online);
         searchInput.addEventListener("input", handleInputSearchInputOnline);
         closeButton.addEventListener("click", handleCloseButtonClickOnline);
     }
@@ -259,7 +246,7 @@ fetchJsonData().then(users => {
         buttonVisuals('all');
         removeAllEventListenersOnSearchInput();
         removeProfilesColumn2();
-        generateProfilesColumn2(all.sort((a, b) => a.name.localeCompare(b.name)));
+        generateProfilesColumn2(all);
         searchInput.addEventListener("input", handleInputSearchInputAll);
         closeButton.addEventListener("click", handleCloseButtonClickAll);
     }
@@ -267,7 +254,7 @@ fetchJsonData().then(users => {
         buttonVisuals('pending');
         removeAllEventListenersOnSearchInput();
         removeProfilesColumn2();
-        generateProfilesColumn2(pending.sort((a, b) => a.name.localeCompare(b.name)));
+        generateProfilesColumn2(pending);
         searchInput.addEventListener("input", handleInputSearchInputPending);
         closeButton.addEventListener("click", handleCloseButtonClickPending);
     }
@@ -275,7 +262,7 @@ fetchJsonData().then(users => {
         buttonVisuals('blocked');
         removeAllEventListenersOnSearchInput();
         removeProfilesColumn2();
-        generateProfilesColumn2(blocked.sort((a, b) => a.name.localeCompare(b.name)));
+        generateProfilesColumn2(blocked);
         searchInput.addEventListener("input", handleInputSearchInputBlocked);
         closeButton.addEventListener("click", handleCloseButtonClickBlocked);
     }
@@ -358,10 +345,6 @@ document.querySelector("#familyCenterClose").addEventListener("click", function(
     removeElement.remove();
 })
 
-//Kliknutie na + tlačítko
-document.querySelector(".direct-messages__add-symbol").addEventListener("mouseenter", function(e){
-    generateSpeechBubble();
-})
 
 console.log(`Position from top: ${getPosition(".direct-messages__add-symbol").top}`);
 
