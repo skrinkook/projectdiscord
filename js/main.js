@@ -1,5 +1,7 @@
-const numberOfServerIcons = 15; //bude treba upraviť aby číslo sa rovnalo počtu objektov servers v json file
 /*---------------------------------------------------------------------*/
+fetchServersData("servers.json").then(servers => {
+let numberOfServerIcons = servers.length;
+console.log(numberOfServerIcons);
 for (let i = 0; i < numberOfServerIcons; i++){
     //Div v ktorom bude ikonka, pill na boku a počet upozornení
     const div = document.createElement("div");
@@ -57,19 +59,18 @@ for (let i = 0; i < numberOfServerIcons; i++){
     })
 
     //Nastaví obrázok pre daný server
-    fetchServersData("servers.json").then(servers => {
+
         circle.style.backgroundImage = `url(.${servers[i].icon})`
-      });
+
     document.querySelector(`.gen${i + 1}`).appendChild(circle);
     
     //Ak bude 0, tak nezobrazí nič
     //Inak vygeneruje red pill s číslom a podľa veľkosti čísla prispôsobí veľkosť pill
     //Ak upozornení bude viacej ako 1000, napíše 1K+
-    fetchServersData("servers.json").then(servers => {
+
         let notificationsNumber = servers[i].notifications;
         if (notificationsNumber === 0){
             console.log("bola to nula");
-            return;
         } else if (notificationsNumber <= 9) {
             console.log(notificationsNumber)
             generateRedPillAndNumber(i, notificationsNumber);
@@ -91,10 +92,10 @@ for (let i = 0; i < numberOfServerIcons; i++){
             overwrite.textContent = "1K+";
         }
 
-      });
+
 
     // Biely pill naboku, ak v json file je 1, vygeneruje ho
-    fetchServersData("servers.json").then(servers => {
+    
         let pill = servers[i].pill;
         if (pill === 1) {
             const pill = document.createElement("div");
@@ -102,9 +103,9 @@ for (let i = 0; i < numberOfServerIcons; i++){
             document.querySelector(`.gen${i + 1}`).appendChild(pill)
         }
 
-    });
 
 }
+})
 /*---------------------------------------------------------------------*/
 
 //Odstráni speechBubble počas scrollovania, ak scrollBubble bol odstránený už pri mouseleave evente, tak funkciu vráti
