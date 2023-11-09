@@ -1,4 +1,3 @@
-//Musel som preložiť komentáre do angličtiny, pretože moje IDE ma zjebávalo zakaždým keď to bolo po slovensky... 
 //Used to gets data from json file
 function fetchServersData() {
     return fetch('servers.json')
@@ -122,7 +121,7 @@ const generateProfilesColumn2 = function(array){
     let elementSection = document.querySelector(".column2__elementsection");
     let outerElement = document.createElement("div");
     outerElement.addEventListener("click", function(e){
-      //console.log("I'm " + userProfile.name)
+
     })
     outerElement.classList.add("column2__elementouter", `oeg${i}`)
     elementSection.appendChild(outerElement);
@@ -173,7 +172,7 @@ const generateProfilesColumn2 = function(array){
       offlineSubCircle.classList.add("offline-subcircle");
       document.querySelector(`.offcg${c}`).appendChild(offlineSubCircle);
     } else if (userProfile.flag === "pending") {
-      console.log(userProfile);
+      
     }
     
     //Display Name, ID
@@ -223,7 +222,7 @@ const buttonVisuals = function(buttonID){
 
 function removeAllEventListenersOnSearchInput(){
   let searchInput = document.querySelector(".inputsearch__input");
-  console.log(searchInput)
+
   searchInput.removeEventListener("input", handleInputSearchInputOnline);
   searchInput.removeEventListener("input", handleInputSearchInputAll);
   searchInput.removeEventListener("input", handleInputSearchInputPending);
@@ -367,7 +366,7 @@ const generateActivityColumn3 = function(usersArray){
 
   usersArray.forEach((oneUser) => {
     i++
-    //console.log(oneUser.activity);
+
     let activityElement = document.createElement("div");
     activityElement.classList.add("activity-element", `AEG${i}`)
     document.querySelector(".activity-column").appendChild(activityElement);

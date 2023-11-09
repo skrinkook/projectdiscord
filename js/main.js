@@ -1,7 +1,7 @@
 /*---------------------------------------------------------------------*/
 fetchServersData("servers.json").then(servers => {
 let numberOfServerIcons = servers.length;
-console.log(numberOfServerIcons);
+
 for (let i = 0; i < numberOfServerIcons; i++){
     //Div v ktorom bude ikonka, pill na boku a počet upozornení
     const div = document.createElement("div");
@@ -15,7 +15,7 @@ for (let i = 0; i < numberOfServerIcons; i++){
     //Hover Eventy
     //Čo sa má stať keď užívateľ dá myšku ikonku
     circle.addEventListener("mouseenter", function(e){
-        console.log(`Dal si myšku na button ${i + 1}`);
+      
         //Zistí súradnice danej ikonky vzhľadom na veľkosť webstránky
         let element = document.querySelector(`.genIconFrame${i + 1}`);
         let rect = element.getBoundingClientRect();
@@ -55,7 +55,7 @@ for (let i = 0; i < numberOfServerIcons; i++){
             return;
         }
         speechBubble.remove();
-        console.log(`Odišiel si s myškou z buttonu ${i + 1}`)
+        
     })
 
     //Nastaví obrázok pre daný server
@@ -70,21 +70,21 @@ for (let i = 0; i < numberOfServerIcons; i++){
 
         let notificationsNumber = servers[i].notifications;
         if (notificationsNumber === 0){
-            console.log("bola to nula");
+            
         } else if (notificationsNumber <= 9) {
-            console.log(notificationsNumber)
+            
             generateRedPillAndNumber(i, notificationsNumber);
         } else if (notificationsNumber <= 99) {
             generateRedPillAndNumber(i, notificationsNumber);
             let displayRedBox = document.querySelector(`.genRedBox${i + 1}`)
             displayRedBox.style.width = "25px"
         } else if (notificationsNumber <= 999) {
-            console.log(notificationsNumber + " väčšie ako 10");
+            
             generateRedPillAndNumber(i, notificationsNumber);
             let displayRedBox = document.querySelector(`.genRedBox${i + 1}`)
             displayRedBox.style.width = "30px";
         } else {
-            console.log(notificationsNumber + " bolo väčšie alebo rovné ako 1000")
+           
             generateRedPillAndNumber(i, notificationsNumber);
             let displayRedBox = document.querySelector(`.genRedBox${i + 1}`)
             displayRedBox.style.width = "30px"; 
@@ -115,7 +115,7 @@ document.querySelector(".left-scroller-guilds").addEventListener("scroll", funct
         return;
     }
     speechBubble.remove();
-    console.log("scroll test")
+
 })
 
 //Vygenerovanie užívateľov
@@ -129,7 +129,7 @@ fetchJsonData().then(users => {
     const all = userProfiles.filter(user => user.flag !== "blocked" && user.flag !== "pending");
     const pending = userProfiles.filter(user => user.flag === "pending");
     const blocked = userProfiles.filter(user => user.flag === "blocked");
-    console.log(online, all, pending, blocked)
+
 
     //Generovanie First Column
     for (i = 0; i < openedProfiles.length; i++){
@@ -210,7 +210,7 @@ fetchJsonData().then(users => {
             openedProfiles[selector]["opened"] = 0;
             let removeElement = document.querySelector(`.columnElementGen${selector + 1}`);
             removeElement.remove();
-            console.log(openedProfiles);
+
         })
     }
 
@@ -347,10 +347,9 @@ document.querySelector("#familyCenterClose").addEventListener("click", function(
 })
 
 
-console.log(`Position from top: ${getPosition(".direct-messages__add-symbol").top}`);
 
 window.addEventListener('load', function () {
-    console.log("Loading Completed");
+
     let loadingScreen = document.querySelector(".loadingscreen");
     loadingScreen.style.display = "none";
 });
